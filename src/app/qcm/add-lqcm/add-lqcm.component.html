@@ -1,0 +1,61 @@
+<style>
+  h1 {
+    color: black;
+    background-color: #1a8e5f;
+
+  }
+</style>
+<h1 align="center"> Qcm</h1>
+
+<hr>
+<form [formGroup]="this.formData" (ngSubmit)="onSubmit()">
+  <input type="hidden" class="form-control" formControlName="id" id="id">
+  <div class="form-group">
+    <label>Ligne </label>
+    <div class="input-group">
+      <input class="form-control" formControlName="ligne" readonly>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Question </label>
+    <div class="input-group">
+      <input class="form-control" formControlName="question" id="question"
+        [class.is-invalid]="!isValid && formData.value.question == null">
+    </div>
+  </div>
+  <div>
+    <label>Numero Reponse Correcte </label>
+    <div class="input-group">
+      <input class="form-control" formControlName="reponse" id="reponse"
+        [class.is-invalid]="!isValid && formData.value.reponse == null">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Reponse 1</label>
+    <div class="input-group">
+      <input class="form-control" formControlName="reponse1" id="reponse1"
+        [class.is-invalid]="!isValid && formData.value.reponse1 == null">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Reponse 2</label>
+    <div class="input-group">
+      <input class="form-control" formControlName="reponse2" id="reponse2"
+        [class.is-invalid]="!isValid && formData.value.reponse2 == null">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Reponse 3</label>
+    <div class="input-group">
+      <input class="form-control" formControlName="reponse3" id="reponse3"
+        [class.is-invalid]="!isValid && formData.value.reponse3 == null">
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary"><i class="icon-database"></i> Valider</button>
+    <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i>
+      Fermer</button>
+  </div>
+
+</form>

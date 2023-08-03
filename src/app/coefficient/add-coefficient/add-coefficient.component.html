@@ -1,0 +1,49 @@
+<div class="card">
+  <mat-toolbar color="primary">
+    <h1>{{title}}</h1>
+  </mat-toolbar>
+  <hr>
+  <div class="card-body">
+            <form [formGroup]="this.coefficientService.formData" (ngSubmit)="onSubmit()">
+              <input type="hidden"  formControlName="id" id="id">
+              <div class="form-group">
+                <label>Code </label>
+                <input type="text" class="form-control" formControlName="code" id="code" readonly>
+              </div>
+
+              <div class="form-group">
+                <label>Classe </label>
+                <select class="form-control" formControlName="codeClasse" (change)="onselectClasse($event.target)">
+                    <option value="0">-Select-</option>
+                    <option *ngFor="let item of classeList" value="{{item.code}}">{{item.libelle}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+              <label>Matiere </label>
+              <select class="form-control" formControlName="codeMatiere" (change)="onselectMatiere($event.target)">
+                  <option value="0">-Select-</option>
+                  <option *ngFor="let item of matiereList" value="{{item.code}}">{{item.libelle}}</option>
+              </select>
+          </div>
+              <div class="form-group">
+                <label>Coefficient</label>
+                <input type="text" class="form-control" formControlName="coef" id="coef" placeholder=" Coefficient">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary"><i class="icon-database"></i> Valider</button>
+                <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i> Fermer</button>
+        </div>
+            </form>
+  </div>
+</div>
+        
+        
+      
+      
+      
+        
+        
+      
+      
+      
+  

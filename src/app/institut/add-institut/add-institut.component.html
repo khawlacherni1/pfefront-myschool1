@@ -1,0 +1,49 @@
+<div class="card">
+    <mat-toolbar color="primary">
+      <h1>{{title}}</h1>
+    </mat-toolbar>
+    <hr>
+    <div class="card-body">
+<form [formGroup]="this.crudApi.formData" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="id" id="id">
+    <div class="form-group">
+        <label>Code </label>
+        <input type="text" class="form-control" formControlName="code" id="code" readonly>
+      </div>
+    <div class="form-group">
+        <label>Libelle :</label>
+        <input type="text" class="form-control" formControlName="libelle" id="libelle" placeholder="Libelle Institut">
+    </div>
+    <div class="form-group">
+        <label>Libelle Court :</label>
+        <input type="text" class="form-control" formControlName="libelleCourt" id="libelleCourt" placeholder="Libelle Court">
+    </div>
+    <div class="form-group">
+        <label>Adresse :</label>
+        <input type="text" class="form-control" formControlName="adresse" placeholder="Adresse ">
+    </div>
+    <div class="form-group">
+        <label>Tel 1 :</label>
+        <input type="text" class="form-control" formControlName="tel1" placeholder="Tel1">
+    </div>
+    <div class="form-group">
+        <label>Tel 2 :</label>
+        <input type="text" class="form-control" formControlName="tel2" placeholder="Tel2">
+    </div>
+    <div class="form-group">
+        <label>Email :</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Eamil .....">
+    </div>
+    <div class="form-group">
+        <label>Slogant :</label>
+        <input type="text" class="form-control" formControlName="slogant">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary"><i class="icon-database"></i> Valider</button>
+        <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i>
+            Fermer</button>
+    </div>
+
+</form>
+</div>
+</div>

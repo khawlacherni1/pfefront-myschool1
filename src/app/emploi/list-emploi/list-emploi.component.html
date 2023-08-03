@@ -1,0 +1,61 @@
+<div class="card">
+    <mat-toolbar color="primary">
+        <h1>Liste Emploi du Temps</h1>
+    </mat-toolbar>
+    <hr>
+    <div class="card-body">
+        <div class="right">
+
+            <a class="btn btn-outline-success" (click)="addEmploi()">
+                <i class="icon-add_box"></i>Ajout</a>
+            <hr>
+
+            <input type="text" [(ngModel)]="SearchText" class="form-control bg-light border-5 small"
+                placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
+
+        </div>
+
+        <hr>
+
+
+
+
+        <div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-responsive-sm table-responsive-md
+   table-responsive-lg">
+                    <thead>
+                        <tr>
+                            <th scope="col">Année</th>
+                            <th scope="col">Numéro</th>
+                            <th scope="col">Semestre </th>
+                            <th scope="col">Classe </th>
+                            <th class="text-center" colspan="2">Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of service.list | paginate: { itemsPerPage: 8, currentPage: p}">
+                            <td>{{item.annee}}</td>
+                            <td>{{item.numero}}</td>
+                            <td>{{item.semestre}}</td>
+                            <td>{{item.classe}}</td>
+                            <td colspan="2">
+                                <div class="btn-toolbar ">
+
+                                    <button class="btn btn-warning" (click)="selectData(item)">
+                                        <i class="fa fa-pencil-square-o"></i></button>
+                                    <div class="espace"></div>
+                                    <button class="btn btn-danger " (click)="removeData(item.id)">
+                                        <i class="fa fa-trash-o"></i></button>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

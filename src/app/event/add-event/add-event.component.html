@@ -1,0 +1,103 @@
+<div class="card">
+  <mat-toolbar color="primary">
+    <h1>{{title}}</h1>
+  </mat-toolbar>
+  <hr>
+  <div class="card-body">
+      <form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label><strong>Numéro : </strong></label>
+            <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
+        </div>  
+        
+        <div class="col-md-6 form-group">
+          <label>Année</label>
+        <input  type="number"  class="form-control" formControlName="annee"  id="annee">
+        </div>
+          <div class="col-md-6 form-group">
+            <label class="form-label">Libelle :</label>
+            <input type="text" formControlName="libelle" id="libelle" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['libelle'].errors }" />
+            <div *ngIf="submitted && f['libelle'].errors" class="invalid-feedback">
+              <div *ngIf="f['libelle'].errors['required']">Libelle is required</div>
+            </div>
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="form-label">Lieu :</label>
+            <input type="text" formControlName="lieu" id="lieu" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['lieu'].errors }" />
+            <div *ngIf="submitted && f['lieu'].errors" class="invalid-feedback">
+              <div *ngIf="f['lieu'].errors['required']">lieu is required</div>
+            </div>
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label class="form-label">Ville :</label>
+            <input type="ville" formControlName="ville" id="ville" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['ville'].errors }" />
+            <div *ngIf="submitted && f['ville'].errors" class="invalid-feedback">
+              <div *ngIf="f['ville'].errors['required']">ville is required</div>
+            </div>
+          </div>
+          <div class="col-md-6 form-group">
+            <label class="form-label">Pays : </label>
+            <input type="pays" formControlName="pays" class="form-control" id="pays"
+              [ngClass]="{ 'is-invalid': submitted && f['pays'].errors }" />
+            <div *ngIf="submitted && f['pays'].errors" class="invalid-feedback">
+              <div *ngIf="f['pays'].errors['required']">pays is required</div>
+              <div *ngIf="f['pays'].errors['minlength']">pays must be at least 6 characters</div>
+            </div>
+          </div>
+          <div class="col-md-6 form-group">
+            <label>Type Evenement</label>
+            <select formControlName="typeEvent" id="typeEvent" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['typeEvent'].errors }">
+              <option value="0">Select typeEvent</option>
+              <option value="VE">Voyage Etude</option>
+              <option value="VP">Voyafe de Promotion</option>
+              <option value="Soirée">Soirée</option>
+              <option value="Divers">Divers</option>
+
+            </select>
+            <div *ngIf="submitted && f['typeEvent'].errors" class="invalid-feedback">
+              <div *ngIf="f['typeEvent'].errors['required']">typeEvent is required</div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Date</label>
+            <input  type="date"  class="form-control" formControlName="dateDebut" id="dateDebut">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Nbj </label>
+            <input  type="text"  class="form-control" formControlName="nbj" id="nbj">
+          </div>
+          <div class="col-md-6 form-group">
+            <label>Tarifs : </label>
+              <input type="text" formControlName="tarif" class="form-control"/>
+              
+          </div>
+          <div class="col-md-6 form-group">
+            <label>Nombre : </label>
+              <input type="text" formControlName="nombre" class="form-control"/>
+              
+          </div>
+          
+          <div class="form-group form-primary">
+            <label>File Upload </label>
+            <input type="file" accept="image/*" (change)="onSelectFile($event)">
+            <img [src]="imgURL" height="200" *ngIf="imgURL">
+          </div>
+<br>
+<br>
+
+        <div class="col-md-6 form-group form-primary">
+          <button type="submit" class="btn btn-primary"><i class="fa fa-database"></i> Submit</button>
+          <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i> Fermer</button>
+        </div>
+        </div>
+      </form>
+
+    </div>
+  
+    </div>

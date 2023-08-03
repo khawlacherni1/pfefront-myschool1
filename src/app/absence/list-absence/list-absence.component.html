@@ -1,0 +1,69 @@
+<div class="card">
+  <mat-toolbar color="primary">
+    <h1>Liste des Absences</h1>
+  </mat-toolbar>
+  <hr>
+  <div class="card-body">
+    <div class="right">
+      <a *ngIf="this.userService.enseignant" class="btn btn-outline-success" (click)="newAbsence()">
+        <i class="icon-add_box"></i> Ajouter</a>
+      <hr>
+      <input type="text" [(ngModel)]="SearchText" class="form-control bg-light border-5 small"
+        placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
+    </div>
+    <hr>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-responsive-sm table-responsive-md
+               table-responsive-lg">
+        <thead>
+          <tr>
+            <th scope="col">Année</th>
+            <th scope="col">Semestre</th>
+            <th scope="col">Jour</th>
+            <th scope="col">Enseignant</th>
+             <th scope="col">Classe</th>
+            <th scope="col">Matiere</th>
+            <th scope="col">Horaire</th>
+            <th class="text-center" scope="col">Action</th>
+          </tr>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of absenceListe">
+            <td>{{item.annee}}</td>
+            <td>{{item.semestre}}</td>
+            <td>{{item.dateJour}}</td>
+            <td>{{item.enseignant}}</td>
+            <td>{{item.classe}}</td>
+            <td>{{item.matiere}}</td>
+            <td>{{item.horaire}}</td>            
+            <td>
+              <div class="btn-toolbar ">
+                <button class="btn btn-warning" (click)="selectData(item)">
+                  <i class="fa fa-pencil-square-o"></i></button>
+                <div class="espace"></div>
+                <button class="btn btn-danger " (click)="removeData(item.id)">
+                  <i class="fa fa-trash-o"></i></button>
+
+              </div>
+            </td>
+          </tr>
+          <div class="row">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite"></div>
+            </div>
+            <div class="col-sm-12 col-md-7">
+              <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                <ul class="pagination"></ul>
+              </div>
+            </div>
+          </div>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </div>
+  </div>
+
+</div>

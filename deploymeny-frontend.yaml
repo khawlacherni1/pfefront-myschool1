@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: frontend-myschool
+  name: frontend-myschool
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-myschool
+  template:
+    metadata:
+      labels:
+        app: frontend-myschool
+    spec:
+      containers:
+        - env:
+          image: khawlacherni/myschoolfront:latest
+          name: frontend-myschool
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
+
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: frontend-myschool
+  name: frontend-myschool
+spec:
+  ports:
+    - name: http-80
+      protocol: TCP
+      port: 80
+      targetPort: 3000
+  selector:
+    app: frontend-myschool
+  type: LoadBalancer

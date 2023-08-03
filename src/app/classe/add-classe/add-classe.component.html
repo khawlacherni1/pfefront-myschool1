@@ -1,0 +1,47 @@
+<div class="card">
+  <mat-toolbar color="primary">
+    <h1>{{title}}</h1>
+  </mat-toolbar>
+  <hr>
+  <div class="card-body">
+          <form [formGroup]="this.crudApi.formData" (ngSubmit)="onSubmit()">
+            <input type="hidden"  formControlName="id" id="id">
+            <div class="form-group"> 
+              <label>Code </label>
+              <input type="text" class="form-control" formControlName="code" id="code" readonly>
+            </div>
+            <div class="form-group">
+              <label>Libelle</label>
+              <input type="text" class="form-control" formControlName="libelle" id="libelle" placeholder="Libelle Classe">
+            </div>
+            <div class="form-group">
+              <label>Domaine  </label>
+              <select class="form-control" formControlName="codeDomaine">
+                  <option value="0">-Select-</option>
+                  <option *ngFor="let item of domaineList" value="{{item.code}}">{{item.libelle}}</option>
+              </select>
+          </div>
+            <div class="form-group">
+              <label>Specialité </label>
+              <select class="form-control" formControlName="codeSpecialite">
+                  <option value="0">-Select-</option>
+                  <option *ngFor="let item of specialiteList" value="{{item.code}}">{{item.libelle}}</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label>Cycle </label>
+            <select class="form-control" formControlName="codeCycle">
+                <option value="0">-Select-</option>
+                <option *ngFor="let item of cycleList" value="{{item.code}}">{{item.libelle}}</option>
+            </select>
+        </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary"><i class="icon-database"></i> Valider</button>
+              <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i> Fermer</button>
+      </div>
+          </form>
+  </div>
+</div>
+      
+      
+    

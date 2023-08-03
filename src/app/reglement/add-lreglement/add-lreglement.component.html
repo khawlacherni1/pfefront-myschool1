@@ -1,0 +1,54 @@
+<style>
+  h1 {
+    color: black;
+    background-color: #1a8e5f;
+    
+  }
+</style>
+
+<h4 align = "center">Reglement Etudiant </h4>
+<hr>
+<form [formGroup]="this.formData" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Mode Reglement </label>
+    <select class="form-control" class="form-control" formControlName="modeReglement" id="modReglement"
+    
+    (change)="onChange($event.target)">
+      <option value="0">-Select-</option>
+    
+      <option *ngFor="let item of this.modreglementList" value="{{item.code}}">{{item.libelle}} </option>
+    </select>
+  </div>
+  <div *ngIf="this.modep == 'CHQ'" class="form-group">
+    <label>N° Piéce</label>
+    <div class="input-group">
+      <input class="form-control" formControlName="numpiece" id ="numpiece">
+    </div>
+  </div>
+ 
+  <div *ngIf="this.modep == 'CHQ'" class="form-group">
+    <label>Banque : </label>
+    <select class="form-control" formControlName="banque" id ="banque">
+      <option value="0">-Select-</option>
+      <option *ngFor="let item of this.banqueList" value="{{item.libelle}}">{{item.libelle}} </option>
+    </select>
+  </div>
+  <div *ngIf="this.modep == 'CHQ'" class="form-group">
+    <label>Echéance </label>
+    <div class="input-group">
+      <input type="date" formControlName="echeance" id="echeance">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Montant </label>
+    <div class="input-group">
+      <input class="form-control" formControlName="montant" id="montant" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-dark"><i class="icon-database"></i> Valider</button>
+    <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i> Fermer</button>
+  </div>
+
+</form>

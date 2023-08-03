@@ -1,0 +1,62 @@
+<!-- <h1>{{ name }}</h1> -->
+
+<div class="header-left">
+    <button class="btn btn-primary mb-2 mb-md-0 mr-2" (click)="impAttestation()"> Réçu PDF </button>
+    <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i>
+        Close</button>
+</div>
+<div  style="overflow-y: scroll; height:700px;" class="col-md-12 col-md-offset-2">
+    <div class="left">
+        <img src="assets/images/logo.png" class="img-circle " alt="User Image" width="200">
+    </div>
+    <div id="recu" class="stuff">
+        <br><br>
+        <h1>{{institut.libelle}}</h1>
+        <p>{{institut.libc}}</p>
+        <p>{{institut.adresse}}</p>
+        <pre>{{institut.tel1}}  {{institut.tel2}}  </pre>
+        <p>{{institut.email}}</p>
+        <br>
+        <h1 align="center">Reçu de réglement</h1>
+        <br>
+        <pre>Numero : {{reglement.numero}}                                                        Date Réglement : {{reglement.dateReglement}}</pre>
+        <p>Nom Etudiant : {{reglement.nom}}</p>
+        <p>Prenom Etudiant  : {{reglement.prenom}}</p>
+        <p>Classe : {{reglement.classe}}</p>
+        <p>N° Inscription : {{reglement.numInscription}}</p>
+         <hr>
+        <p>Montant Payé : {{reglement.montant}}</p>
+        <h1 align = "center">Détail Réglement</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-responsive-sm table-responsive-md
+        table-responsive-lg">
+                <thead>
+                    <tr>
+            <td col-md-2>Mode</td>
+            <td col-md-4>N°Piéce </td>
+            <td col-md-4>Echéance </td>
+            <td col-md-4>Montant </td>
+          </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of list">
+                      <td>{{item.modeReglement}}</td>
+                      <td>{{item.numpiece}}</td>
+                      <td>{{item.echeance}}</td>
+                      <td>{{item.montant}}</td>
+                  </tr>    
+       </tbody>
+       </table>
+<br>
+<br>
+        <p>Signature du Caissier</p>
+        <br>
+        <br>
+    </div>
+    <br>
+    <br>
+</div>
+</div>
+
+
+

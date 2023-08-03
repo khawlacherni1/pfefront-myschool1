@@ -1,0 +1,39 @@
+<style>
+    h1 {
+      color: black;
+      background-color: #1a8e5f;
+      
+    }
+  </style>
+      <h1 align = "center"> Note</h1>
+   
+  <hr>
+  <form [formGroup]="this.formData"  (ngSubmit)="onSubmit()">
+      <input type="hidden" class="form-control" formControlName="id" id="id">
+      <div class="form-group">
+          <label>Matricule </label>
+          <div class="input-group">
+            <input class="form-control" formControlName="matricule" readonly >
+      </div>
+      </div>
+      <div class="form-group">
+        <label>Nom </label>
+        <div class="input-group">
+          <input class="form-control" formControlName="nom" readonly >
+    </div>
+    </div>
+      <div class="form-group">
+      <label>Absent </label>
+      <div class="input-group">
+            <input class="form-control" formControlName="absent" id="absent">
+      </div>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-dark"><i class="icon-database"></i> Valider</button>
+        <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i> Fermer</button>
+      </div>
+    
+  </form>
+  
+  

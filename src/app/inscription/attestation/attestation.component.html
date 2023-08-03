@@ -1,0 +1,126 @@
+<!-- <h1>{{ name }}</h1> -->
+
+<div class="header-left">
+    <button class="btn btn-primary mb-2 mb-md-0 mr-2" (click) ="impAttestation()"> Attestation PDF </button>
+    <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="fa fa-close"></i> Close</button>
+  </div>
+  <div id="attestation" style="overflow-y: scroll; height:700px;" class="col-md-12 col-md-offset-2">
+  
+  
+ <!-- <div class="left">
+      <img src="assets/img/logo.jpg" class="img-circle " alt="User Image" width="200" >
+  </div>-->
+  <div class="stuff">
+    <br><br>
+   <strong> <pre>{{institut.libelle}}                         {{institut.slogant}}</pre></strong>
+    <p>{{institut.libc}}</p>
+    <p><strong>Bp : </strong>{{institut.bp}}     {{institut.tel1}}     {{institut.tel2}}</p>
+    <p>      {{institut.adresse}}         {{annee}}+" "+{{ann}}</p>
+          
+    <h1 align = "center">Fiche D'Inscription</h1>
+    <br>
+    <br>
+    <br>
+    <div class="table-responsive">
+      <table class="table table-bordered table-responsive-sm table-responsive-md
+  table-responsive-lg">
+    <tr>
+      <td col-md-4>Matricule : {{inscription.matricule}}</td>
+    </tr>
+    <tr>
+      <td col-md-4>Nom Etudiant  : {{inscription.nom }}</td>
+      <td col-md-4>Prénom  Etudiant  : {{inscription.prenom }}</td>
+    </tr>
+    <tr>
+      <td col-md-4>Date de naissance : {{etudiant.dateNaissance}}</td>
+      <td col-md-4>Lieu : {{etudiant.lieu}}</td>
+    </tr>
+    <tr>
+      <td col-md-4>Classe  : {{inscription.classe}}</td>
+      <td col-md-4>Etablissement d'origine : {{etudiant.etablissement}}</td>
+    </tr>
+    <tr>
+      <td col-md-4>Nom du Père    : {{etudiant.pere}}</td>
+      <td col-md-4>Profession     : {{etudiant.profPere}}</td>
+    </tr>
+    <tr>
+      <td col-md-4>Nom de la mère : {{etudiant.mere}}</td>
+      <td col-md-4>Profession  : {{etudiant.profMere}}</td>
+    </tr>
+  </table>
+  
+  <br>  <p>Adresse des parents </p>
+  <table class="table table-bordered table-responsive-sm table-responsive-md
+  table-responsive-lg">
+    <tr>
+      <td col-md-4>Nom du parent ou tuteur : {{etudiant.tuteur}}</td>
+      <td col-md-4>Profession  : {{etudiant.proTuteur}}</td>
+    </tr>
+    <tr>
+      <td col-md-4>Lieu du travail  : {{etudiant.lieu}}</td>
+      <td col-md-4>Email Tuteur :{{etudiant.email}}</td>
+    </tr>
+    <tr>
+      <td col-md-4>Téléphone    : {{etudiant.telTuteur}}</td>
+      <td col-md-4>Bp  : {{etudiant.bp}}</td>
+    </tr>
+    <tr>
+      <td col-md-4>Quartier : {{etudiant.quartier}}</td>
+      <td col-md-4><pre >Carré  : {{etudiant.carre}}        Concession : {{etudiant.concession}}</pre></td>
+    </tr>
+  </table>
+     <br>
+    <p><b>Modalités de payement</b></p>
+    <p>Le Payement se fait par trimestre sans distinction</p>   
+    <div class="table-responsive">
+      <table class="table table-bordered table-responsive-sm table-responsive-md
+  table-responsive-lg">
+          <thead>
+              <tr>
+      <td col-md-2>Année</td>
+      <td col-md-4>Libelle </td>
+      <td col-md-2>Délai</td>
+      <td col-md-2>Montant</td>
+    </tr>
+          </thead>
+    <tr>
+      <td col-md-2>{{annee}}</td>
+      <td col-md-4>Frais de dossier et plateformes </td>
+      <td col-md-2>{{tarif.d1}}</td>
+      <td col-md-2>{{tarif.frais}} DT</td>
+    </tr>
+    <tr>
+      <td col-md-2></td>
+      <td col-md-4>1er Tranche des frais d'etudes </td>
+      <td col-md-2>{{tarif.d2}}</td>
+      <td col-md-2>{{tarif.m1}} DT</td>
+    </tr>
+    <tr>
+      <td col-md-2></td>
+      <td col-md-4> 2er Tranche des frais d'etudes </td>
+      <td col-md-2>{{tarif.d3}}</td>
+      <td col-md-2>{{tarif.m2}} DT</td>
+    </tr>
+    <tr>
+      <td col-md-2></td>
+      <td col-md-4> 3er Tranche des frais d'etudes </td>
+      <td col-md-2>{{tarif.d4}}</td>
+      <td col-md-2>{{tarif.m3}} DT</td>
+    </tr>
+    </table>
+    </div>
+    <br>
+    <p><b>Nb :</b> En cas de non respect de ces modalités l'élève sera suspendu des cours</p>
+    <p>Le frais d'inscription et le frais d'écolage ne sont pas rembousables ni au parant ni à l'élève en cas de desistement ou d'exclusion
+    méme le retard d'un mois n'est pas permi par l'etablissement
+    </p>
+    <br>
+    <br>
+    <p>Signature du parent ou tuteur</p>
+   </div>
+   <br>
+   <br>
+  </div>
+  
+  
+  

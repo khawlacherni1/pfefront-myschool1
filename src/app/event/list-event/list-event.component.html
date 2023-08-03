@@ -1,0 +1,69 @@
+<div class="card">
+  <mat-toolbar color="primary">
+    <h1>Liste Des Evénements</h1>
+  </mat-toolbar>
+
+  <div class="card-body">
+    <div class="right">
+      <a class="btn btn-outline-success" (click)="addEvent()">
+        <i class="icon-add_box"></i>Ajout</a>
+    
+        <input type="text" [(ngModel)]="SearchText" class="form-control bg-light border-5 small"
+        placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
+      </div>
+
+ <div class="table-responsive">
+  <table class="table table-bordered table-responsive-sm table-responsive-md
+ table-responsive-lg">
+  <thead>
+  <tr>
+  <th scope="col">Numero</th>
+  <th scope="col">Libelle </th>
+  <th scope="col">Lieu</th>
+  <th scope="col">Ville </th>
+  <th scope="col">Pays</th>
+  <th scope="col">Date Début</th>
+  <th scope="col">Nb Jours</th>
+  <th scope="col">Nombre</th>
+  <th scope="col">Tarif</th>
+  <th scope="col">Image</th>
+  <th colspan="2">
+      Actions
+  </th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+
+  <tr *ngFor="let item of service.list | paginate: { itemsPerPage: 8, currentPage: p }">
+   <td>{{item.numero}}</td>
+  <td>{{item.libelle}}</td>
+  <td>{{item.lieu}}</td>
+  <td>{{item.ville}}</td>
+  <td>{{item.pays}}</td>
+  <td>{{item.dateDebut}}</td>
+  <td>{{item.nbj}}</td>
+  <td>{{item.nombre}}</td>
+  <td>{{item.tarif}}</td>
+  <td><a href="#"><img class="card-img-top img-responsive"
+      src = "{{this.service.host+'/api/ImgEvents/'+item.id}}" 
+      style = "height :100px;width:200px"
+     alt=""></a></td>
+ 
+  <td><button class="btn btn-warning btn btn-outline-dark ml-1"  (click) = "selectData(item)">
+    <i class="fa fa-pencil-square-o" ></i></button></td>
+ <td><button class="btn btn-danger btn btn-outline-dark ml-1" (click) = "removeData(item.code)">
+    <i class="fa fa-trash-o"></i></button></td>
+     </tr>
+       </tbody>
+       </table>
+       </div>
+       <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+     </div>
+
+
+
+
+

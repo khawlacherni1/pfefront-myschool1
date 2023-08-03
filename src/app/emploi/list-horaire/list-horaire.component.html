@@ -1,0 +1,51 @@
+<div class="card">
+  <mat-toolbar color="primary">
+    <h1>Liste Des Horaires</h1>
+  </mat-toolbar>
+  <hr>
+  <div class="card-body">
+<div class="right">
+    <a class="btn btn-outline-success" (click)="addHoraire()">
+      <i class="icon-add_box"></i>Ajout</a>
+      <hr>
+      <input type="text" [(ngModel)]="SearchText" class="form-control bg-light border-5 small"
+      placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
+    </div>
+    <hr>
+       <div class="table-responsive">
+          <table class="table table-bordered table-responsive-sm table-responsive-md
+     table-responsive-lg">
+              <thead>
+                  <tr>
+                      <th scope="col">Code</th>
+                      <th scope="col">Heure </th>
+                      <th class="text-center" scope="col">Action</th>
+                     
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of crudApi.list | paginate: { itemsPerPage: 8, currentPage: p}">
+                      <td>{{item.code}}</td>
+                      <td>{{item.heure}}</td>
+                      <td>
+                      <div class="btn-toolbar ">
+                        <button class="btn btn-warning" (click)="selectData(item)">
+                          <i class="fa fa-pencil-square-o"></i></button>
+                      <div class="espace"></div>
+                      <button class="btn btn-danger " (click)="removeData(item.code)">
+                          <i class="fa fa-trash-o"></i></button>
+                            
+                          </div>
+                        </td>
+                  </tr>
+              </tbody>
+          </table>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+   
+      </div>
+  </div>
+</div>
+  
+  
+  
+

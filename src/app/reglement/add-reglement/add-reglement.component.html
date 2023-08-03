@@ -1,0 +1,126 @@
+<div class="card">
+  <mat-toolbar color="primary">
+    <h1>{{title}}</h1>
+  </mat-toolbar>
+  <hr>
+  <div class="card-body">
+<form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+<input type="hidden"  formControlName="id" id="id">
+<input type="hidden"  formControlName="annee" id="annee">
+<div class = "row">
+  <div class="form-group col-md-6">
+    <label>Num Reglement   : </label>
+    <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Date</label>
+    <input  type="date"  class="form-control" formControlName="dateReglement" id="dateReglement">
+  </div>
+  <div class="form-group col-md-6">
+    <label>Etudiant</label>
+    <select  class="form-control" formControlName="matricule" id="matricule">
+    <option value="0">-Select-</option>
+    <option *ngFor="let item of this.etudiantList" value="{{item.mat}}">{{item.nom + ' '+item.prenom}}</option>
+    </select>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Nom : </label>
+    <input  type="text"  class="form-control" formControlName="nom" readonly>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Prenom :</label>
+    <input  type="text"  class="form-control" formControlName="prenom" readonly>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Classe :</label>
+    <input  type="text"  class="form-control" formControlName="classe" readonly>
+  </div>
+  <div class="form-group col-md-6">
+    <label>N° inscription  :</label>
+    <input  type="text"  class="form-control" formControlName="numInscription" readonly>
+  </div>
+  <div class="form-group col-md-6">
+    <label>Montant</label>
+    <input class="form-control" formControlName="montant" readonly>
+</div>
+  <div class="form-group col-md-6">
+    <label>Mode Reglement </label>
+    <select  class="form-control" formControlName="typePaiement" id="modeReglement">
+    <option value="0">-Select-</option>
+    <option *ngFor="let item of this.typePaiementList" value="{{item.code}}">{{item.libelle}}</option>
+    </select>
+</div>
+  <div class="form-group col-md-6">
+      <label>Libelle</label>
+      <input class="form-control" formControlName="libelle" id="libelle">
+  </div>
+ 
+  </div>
+<hr>
+ <table class="table table-borderless">
+    <thead class="thead-light">
+      <th>Mode</th>
+      <th>N° Piéce</th>
+      <th>Banque</th>
+      <th>Echeance</th>
+      <th>Montant</th>
+      <th class="text-center" scope="col">Action</th>
+      
+      
+      <div class="espace"></div>
+    
+        <a class="btn btn-outline-success" (click)="AddData(null,1)"><i class="icon-add_box"></i>Ajouter </a>
+      
+      
+    </thead>
+    <tbody>
+     
+      <tr *ngFor="let item of service.list;let i=index;">
+       
+      <td>{{item.modeReglement}}</td>
+      <td>{{item.numpiece}}</td>
+      <td>{{item.banque}}</td>
+      <td>{{item.echeance}}</td>
+      <td>{{item.montant}}</td> 
+        
+
+
+      <div class="btn-toolbar ">
+        <button class="btn btn-warning" (click)="AddData(item,item.id)">
+          <i class="fa fa-pencil-square-o"></i></button>
+              <div class="espace"></div>
+      <button class="btn btn-danger " (click)="onDelete(item,item.id,i)">
+        <i class="fa fa-trash-o"></i></button>
+
+</div>
+
+
+      
+    </tr>
+    </tbody>
+  </table>
+  <div class="form-group row">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+        <div class="form-group">
+            <label>Total  : </label>
+            <input type="text" class="form-control" id="total" formControlName="montant" readonly>
+        </div>
+        </div> 
+       
+              
+        
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary"><i class="icon-database"></i> Valider</button>
+        <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i> Fermer</button>
+</div>
+
+  
+</form> 
+</div>
+</div>
+
+
+
+
+

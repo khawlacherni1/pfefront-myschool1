@@ -1,0 +1,250 @@
+
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
+
+    <h1 class="logo me-auto"><a href="">My School</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+
+    <nav id="navbar" class="navbar order-last order-lg-0">
+      <ul>
+       
+        <li  *ngIf="this.userService.admin || this.userService.rit" class="dropdown"><a><span>Parametre</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            
+						<li>
+							<a class="dropdown-item" routerLink="/etablissements" routerLinkActive="active">Etablissement</a>
+						</li>
+						<li>
+							<a class="dropdown-item" routerLink="/cycles" routerLinkActive="active">Cycle</a>
+						</li>
+						<li>
+							<a class="dropdown-item" routerLink="/domaines" routerLinkActive="active">Domaine</a>
+						</li>
+						<li>
+							<a class="dropdown-item" routerLink="/matieres" routerLinkActive="active">Matière</a>
+						</li>
+						<li>
+							<a class="dropdown-item" routerLink="/instituts" routerLinkActive="active">Institut</a>
+						</li>
+						<li>
+							<a class="dropdown-item" routerLink="/niveaus" routerLinkActive="active">Niveau</a>
+						</li>
+						<li>
+							<a class="dropdown-item" routerLink="/specialites" routerLinkActive="active">Specialite</a>
+						</li>
+						<li>
+							<a class="dropdown-item" routerLink="/nationalites" routerLinkActive="active">Nationalite</a>
+						</li>
+						<li>
+							<a class="dropdown-item" routerLink="/horaires" routerLinkActive="active">Horaires</a>
+						</li>
+						<li>
+							<a class="dropdown-item" routerLink="/jours" routerLinkActive="active">Jours</a>
+						</li>
+            <li>
+							<a class="dropdown-item" routerLink="/tarifs" routerLinkActive="active">Tarifs</a>
+						</li>
+            <li>
+							<a class="dropdown-item" routerLink="/instituts" routerLinkActive="active">Institut</a>
+						</li>
+            <li>
+							<a class="dropdown-item" routerLink="/modereglments" routerLinkActive="active">Mode Réglement</a>
+						</li>
+            <li>
+							<a class="dropdown-item" routerLink="/typepaiements" routerLinkActive="active">Type Paiement</a>
+						</li>
+           
+          </ul>
+        </li>
+        <li  *ngIf="this.userService.admin || this.userService.rit" class="dropdown"><a><span>Cours</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li>
+							<a class="dropdown-item" routerLink="/classes" routerLinkActive="active">Classes</a>
+						</li>
+            <li>
+							<a class="dropdown-item" routerLink="/matieres" routerLinkActive="active">Matières</a>
+						</li>
+						<li>
+							<a class="dropdown-item" routerLink="/coefficients" routerLinkActive="active">Coefficients</a>
+						</li>
+            <li>
+							<a class="dropdown-item" routerLink="/courss" routerLinkActive="active">Cours</a>
+            </li>
+            <li>
+							<a class="dropdown-item" routerLink="/emplois" routerLinkActive="active">Emploi Du temps</a>
+						</li>
+				
+          </ul>
+        </li>
+        <li  *ngIf="this.userService.admin || this.userService.rit || this.userService.rfi || this.userService.etudiant" class="dropdown"><a><span>Etudiants</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li *ngIf="this.userService.admin || this.userService.rit || this.userService.rfi">
+							<a class="dropdown-item" routerLink="/etudiants" routerLinkActive="active">Etudiants</a>
+						</li>
+            <li *ngIf="this.userService.admin || this.userService.rit || this.userService.rfi">
+							<a class="dropdown-item" routerLink="/inscriptions" routerLinkActive="active">Inscriptions</a>
+						</li>
+            <li *ngIf="this.userService.admin ||  this.userService.rfi">
+							<a class="dropdown-item" routerLink="/reglements" routerLinkActive="active">Réglements</a>
+						</li>
+            <li *ngIf="this.userService.etudiant">
+							<a class="dropdown-item" routerLink="/consNotes" routerLinkActive="active">Notes</a>
+						</li>
+            <li *ngIf="this.userService.etudiant">
+							<a class="dropdown-item" routerLink="/consAbsences" routerLinkActive="active">Absences</a>
+						</li>
+            <li *ngIf="this.userService.etudiant">
+							<a class="dropdown-item" routerLink="/consQcms" routerLinkActive="active">Qcms</a>
+						</li>
+            <li *ngIf="this.userService.etudiant">
+							<a class="dropdown-item" routerLink="/bulletin" routerLinkActive="active">Bulletin</a>
+						</li>
+         </ul>
+        </li>
+        <li   *ngIf="this.userService.admin || this.userService.enseignant " class="dropdown"><a><span>Enseignants</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li  *ngIf="this.userService.admin">
+							<a class="dropdown-item" routerLink="/enseignants" routerLinkActive="active">Enseignants</a>
+						</li>
+            <li>
+							<a class="dropdown-item" routerLink="/notes" routerLinkActive="active">Notes</a>
+						</li>
+            <li>
+							<a class="dropdown-item" routerLink="/absences" routerLinkActive="active">Absences</a>
+						</li>
+            <li>
+							<a class="dropdown-item" routerLink="/qcms" routerLinkActive="active">Qcms</a>
+						</li>
+            <li *ngIf="this.userService.admin || this.userService.enseignant ">
+							<a class="dropdown-item" routerLink="/examens" routerLinkActive="active">Examens</a>
+						</li>
+         </ul>
+        </li>
+     
+        <li><a class="dropdown-item" routerLink="/events" routerLinkActive="active">Events</a></li>
+        <li><a class="dropdown-item" routerLink="/tarifs" routerLinkActive="active">Tarifs</a></li>
+       
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+    <a routerLink="/about" routerLinkActive="active" class="get-started-btn">About</a>
+    <a routerLink="/course" routerLinkActive="active" class="get-started-btn">Course</a>
+
+    <a  class="get-started-btn" (click)="logOut()">LogOut</a>
+    <p>Bonjour : {{this.name}}</p> 
+  </div>
+</header><!-- End Header -->
+
+<main id="main">
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs" data-aos="fade-in">
+    <div class="container">
+      <h2>à propos de nous</h2>
+      <p> Notre Institut apporte un enseignement spirituel, des valeurs morales, un respect total de la liberté de conscience, un encadrement plus strict, une éducation de qualité, un suivi renforcé et des classes moins surchargées.</p>
+    </div>
+  </div><!-- End Breadcrumbs -->
+
+  <!-- ======= About Section ======= -->
+  
+
+  <!-- ======= Counts Section ======= -->
+  <section id="counts" class="counts section-bg">
+    <div class="container">
+
+  
+
+        <router-outlet></router-outlet>
+
+    
+
+    </div>
+  </section><!-- End Counts Section -->
+
+  <!-- ======= Testimonials Section ======= -->
+ 
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>Mentor</h3>
+          <p>
+            A108 Adam Street <br>
+            New York, NY 535022<br>
+            United States <br><br>
+            <strong>Phone:</strong> +1 5589 55488 55<br>
+            <strong>Email:</strong> info@example.com<br>
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Parametre</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Our Services</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-newsletter">
+          <h4>Join Our Newsletter</h4>
+          <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          <form action="" method="post">
+            <input type="email" name="email"><input type="submit" value="Subscribe">
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container d-md-flex py-4">
+
+    <div class="me-md-auto text-center text-md-start">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Mentor</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/ -->
+        Copy Right Version 2.0 <a href="">My University</a>
+      </div>
+    </div>
+    <div class="social-links text-center text-md-right pt-3 pt-md-0">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+

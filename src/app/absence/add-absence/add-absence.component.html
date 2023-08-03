@@ -1,0 +1,93 @@
+<div class="card">
+    <mat-toolbar color="primary">
+        <h1>{{title}}</h1>
+    </mat-toolbar>
+    <hr>
+    <div class="card-body">
+        <form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
+            <input type="hidden" class="form-control" formControlName="id">
+            <input type="hidden" class="form-control" formControlName="codeEnseignant">
+            <div class="form-group row col-md-12">
+                <div class="form-group col-md-6">
+                    <label><strong>Numéro : </strong></label>
+                    <input type="text" class="form-control" formControlName="numero" id="numero" readonly>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label>Date</label>
+                    <input type="date" class="form-control" formControlName="dateJour" id="dateJour">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Enseignant </label>
+                    <input class="form-control" formControlName="enseignant" id="enseignant" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label>Semestre</label>
+
+                    <select class="form-control" formControlName="semestre" required
+                        [ngClass]="{ 'is-invalid': submitted && f['semestre'].errors }">
+                        <option value="1">1 Semetre</option>
+                        <option value="2">2 Semetre</option>
+                    </select>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Classe </label>
+                    <select class="form-control" formControlName="codeClasse" (change)="onselectClasse($event.target)">
+                        <option value="0">-Select-</option>
+                        <option *ngFor="let item of classeList" value="{{item.codeClasse}}">{{item.classe}}</option>
+                    </select>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Matiere </label>
+                    <select class="form-control" formControlName="codeMatiere"
+                        (change)="onselectMatiere($event.target)">
+                        <option value="0">-Select-</option>
+                        <option *ngFor="let item of matiereList" value="{{item.codeMatiere}}">{{item.matiere}}</option>
+                    </select>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label>Séance </label>
+                    <select class="form-control" formControlName="codeHoraire"  (change)="onselectHoraire($event.target)">
+                        <option value="0">-Select-</option>
+                        <option *ngFor="let item of horaireList" value="{{item.code}}">{{item.heure}}</option>
+                    </select>
+                </div>
+                <table class="table table-borderless">
+                    <thead class="thead-light">
+                        <th>Matricule</th>
+                        <th>Nom</th>
+                        <th>Absent</th>
+
+                      
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="etudiantService.list.length==0"
+                            [class.text-danger]="!isValid && etudiantService.list.length ==0">
+                            <td class="font-italic text-center" colspan="5">
+                                Aucune Ligne sélectionnée ...
+                            </td>
+                        </tr>
+                        <tr *ngFor="let item of etudiantService.list;let i=index;">
+                            <td>{{item.matricule}}</td>
+                            <td>{{item.nom}}</td>
+                            <td>{{item.absent}}</td>
+                         
+                            <td>
+                                <a class="btn btn-sm btn-info text-white" (click)="AddData(i,1)">
+                                    <i class="fa fa-pencil-square-o"></i></a>
+                                <a class="btn btn-sm btn-danger text-white ml-1" (click)="onDelete(item,item.id,i)">
+                                    <i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"><i class="icon-database"></i> Valider</button>
+                    <a class="btn btn-outline-dark ml-1" routerLink="/absences"><i class="icon-folder-plus"></i> Liste </a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

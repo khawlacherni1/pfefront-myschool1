@@ -1,0 +1,61 @@
+<div class="right">
+    <a  class="btn btn-outline-success" (click)="newQcm()">
+      <i class="icon-add_box"></i> Nouveau</a>
+      <hr>
+      <input type="text" [(ngModel)]="SearchText" class="form-control bg-light border-5 small"
+      placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
+    </div>
+    <hr>
+
+<style>
+    h1 {
+      color: black;
+      background-color: #3f51b5;
+      
+    }
+  </style>
+<h1 align="center">Liste Des Qcms</h1>
+
+<hr>
+<input type="text" [(ngModel)]="SearchText" class="form-control bg-light border-0 small"
+placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
+<div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-responsive-sm table-responsive-md
+     table-responsive-lg">
+            <thead>
+                <tr>
+                    <th scope="col">Année</th>
+                    <th scope="col">Numéro</th>
+                    <th scope="col">Semestre </th>
+                    <th scope="col">Classe</th>
+                    <th scope="col">Matiére</th>
+                    <th class="text-center" scope="col">Action</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of service.list | paginate: { itemsPerPage: 8, currentPage: p}">
+                    <td>{{item.annee}}</td>
+                    <td>{{item.numero}}</td>
+                    <td>{{item.semetre}}</td>
+                    <td>{{item.classe}}</td>
+                    <td>{{item.matiere}}</td>
+                    <td>
+                    <div class="btn-toolbar ">
+                        <button class="btn btn-warning" (click)="selectData(item)">
+                            <i class="fa fa-pencil-square-o"></i></button>
+                        <div class="espace"></div>
+                        <button class="btn btn-danger " (click)="removeData(item.code)">
+                            <i class="fa fa-trash-o"></i></button>
+                            
+                          </div>
+                          </td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+ 
+    </div>
+</div>
+
