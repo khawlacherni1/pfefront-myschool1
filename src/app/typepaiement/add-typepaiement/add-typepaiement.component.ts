@@ -20,9 +20,9 @@ title :any;
       private router: Router,public dialogRef:MatDialogRef<AddTypepaiementComponent>) { }
       get f() { return this.service.formData.controls }
     ngOnInit() {
-  
-      if (this.service.choixmenu == "A") 
-      { this.infoForm() 
+
+      if (this.service.choixmenu == "A")
+      { this.infoForm()
       this.onSelectCode()
       this.title = "Ajout Mode Reglement"
       }
@@ -31,20 +31,20 @@ title :any;
       this.title = "Modification Mode Reglement"
       }
     }
-  
+
     onSelectCode() {
-      
+
       this.service.getNumero().subscribe(
         response => {
-        
+
           this.num = response;
           this.code = ( 1000 + this.num +1).toString().substring(1);
-        
+
           this.f['code'].setValue(this.code);
         }
       );
     }
-  
+
     infoForm() {
       this.service.formData = this.fb.group({
         id: null,
@@ -57,31 +57,28 @@ title :any;
       this.service.formData.reset();
     }
     onSubmit() {
-     
+
         if (this.service.choixmenu == "A") {
           this.addData();
         }
         else {
-    
+
           this.updateData()
         }
-    
-    
     }
-  
+
   lister()
   {
     this.router.navigate(['/typepaiements']);
   }
-  
     addData() {
-      
+
       this.service.createData(this.service.formData.value).
         subscribe(data => {
           this.dialogRef.close();
           this.service.getAll().subscribe(
             response =>{this.service.list = response;}
-           );                                            
+           );
           this.router.navigate(['/typepaiements']);
         });
     }
@@ -95,6 +92,5 @@ title :any;
           this.router.navigate(['/typepaiements']);
         });
     }
-  
-}
 
+}

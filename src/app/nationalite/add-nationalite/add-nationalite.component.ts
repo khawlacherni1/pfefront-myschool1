@@ -20,8 +20,8 @@ title : any;
       private router: Router,public dialogRef:MatDialogRef<AddNationaliteComponent>) { }
       get f() { return this.crudApi.formData.controls }
     ngOnInit() {
-  
-      if (this.crudApi.choixmenu == "A") 
+
+      if (this.crudApi.choixmenu == "A")
       { this.infoForm()
         this.title = "Ajout Nationalité"
     }
@@ -30,9 +30,6 @@ title : any;
     this.title = "Modification Nationalité"
     }
     }
-  
-   
-  
     infoForm() {
       this.crudApi.formData = this.fb.group({
         id: null,
@@ -44,31 +41,31 @@ title : any;
       this.crudApi.formData.reset();
     }
     onSubmit() {
-     
+
         if (this.crudApi.choixmenu == "A") {
           this.addData();
         }
         else {
-    
+
           this.updateData()
         }
-    
-    
+
+
     }
-  
+
   lister()
   {
     this.router.navigate(['/nationalites']);
   }
-  
+
     addData() {
-      
+
       this.crudApi.createData(this.crudApi.formData.value).
         subscribe(data => {
           this.dialogRef.close();
           this.crudApi.getAll().subscribe(
             response =>{this.crudApi.list = response;}
-           );                                            
+           );
           this.router.navigate(['/nationalites']);
         });
     }
@@ -82,6 +79,5 @@ title : any;
           this.router.navigate(['/nationalites']);
         });
     }
-  
-}
 
+}

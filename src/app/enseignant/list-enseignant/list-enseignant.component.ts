@@ -65,12 +65,3 @@ export class ListEnseignantComponent implements OnInit {
     this.matDialog.open(AddEnseignantComponent, dialogConfig);
   }
 }
-
-
-
-
-  
-
-
-
-

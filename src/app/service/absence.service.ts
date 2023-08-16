@@ -16,7 +16,7 @@ export class AbsenceService {
   constructor(private http: HttpClient) { }
 
   saveOrUpdate(info: Object) {
-   
+
     return this.http.post(`${this.baseUrl}`,info);
    }
   getData(id: string): Observable<Object> {

@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators }
 })
 export class QcmService {
 
-
   // private baseUrl = 'http://localhost:8080/api/notes';
   private baseUrl = '/api/qcms';
   choixmenu: string = 'A';
@@ -18,7 +17,7 @@ export class QcmService {
   constructor(private http: HttpClient) { }
 
   saveOrUpdate(info: Object) {
-   
+
     return this.http.post(`${this.baseUrl}`,info);
    }
   getData(id: string): Observable<Object> {
@@ -45,9 +44,4 @@ export class QcmService {
   getAll(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
-
-  
-
 }
-
-

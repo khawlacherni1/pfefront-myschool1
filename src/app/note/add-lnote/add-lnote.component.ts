@@ -32,9 +32,6 @@ export class AddLnoteComponent implements OnInit {
     this.formData = this.fb.group(Object.assign({}, this.etudiantService.list[this.data.lnoteIndex]));
   }
 
-
-
-
   InfoForm() {
     this.formData = this.fb.group({
       id: null,
@@ -46,12 +43,6 @@ export class AddLnoteComponent implements OnInit {
 
     });
   }
-
-
-
-
-
-
   onSubmit() {
     this.etudiantService.list[this.data.lnoteIndex] = this.formData.value;
     this.dialogRef.close();
@@ -66,6 +57,3 @@ export class AddLnoteComponent implements OnInit {
     return this.isValid;
   }
 }
-
-
-

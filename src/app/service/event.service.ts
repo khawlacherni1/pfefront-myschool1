@@ -10,7 +10,7 @@ from '@angular/forms';
   providedIn: 'root'
 })
 export class EventService {
-  private baseUrl = '/api/events';
+  private baseUrl = 'http://localhost:8080/api/events';
   list:  any=[];
   islogin = false;
   admin = false;
@@ -20,26 +20,26 @@ export class EventService {
   enseignant = false;
   host :string = 'http://localhost:8080';
   choixmenu : string  = 'A';
-  
-  public formData !:  FormGroup; 
+
+  public formData !:  FormGroup;
   constructor(private http: HttpClient,private datePipe: DatePipe) { }
-  
+
   getData(id: number): Observable<Object> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
- 
+
   getNumero(ann : number) {
     return this.http.get(`${this.baseUrl}/7/${ann}`);
   }
   createData(info: Object): Observable<Object> {
-   
+
     return this.http.post(`${this.baseUrl}`, info);
   }
-  
+
   updatedata( value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}`, value);
   }
-   
+
   deleteData(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
@@ -47,7 +47,4 @@ export class EventService {
   getAll(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
-  
- 
   }
-

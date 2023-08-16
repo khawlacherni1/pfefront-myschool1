@@ -33,7 +33,6 @@ export class ListAbsenceComponent implements OnInit {
 
   }
 
-
   removeData(id: any) {
     if (window.confirm('Are sure you want to delete this Cours ?')) {
       this.service.deleteData(id)
@@ -57,8 +56,4 @@ export class ListAbsenceComponent implements OnInit {
     this.service.choixmenu = "M"
     this.router.navigate(['/absence']);
   }
-
 }
-
-
-

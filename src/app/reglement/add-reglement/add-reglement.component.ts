@@ -55,12 +55,12 @@ export class AddReglementComponent implements OnInit {
       this.etudiantService.getAll().subscribe(
         response => { this.etudiantList = response; }
       )
-      
+
         this.typePaiementService.getAll().subscribe(
           response => { this.typePaiementList = response; }
       );
       this.service.list = [];
-    
+
       this.getData(this.inscriptionService.id);
       this.title = "Ajout Reglement";
     }
@@ -70,12 +70,8 @@ export class AddReglementComponent implements OnInit {
         response => { this.service.list = response }
       );
       this.title = "Modification Reglements"
-     
     }
-   
-    
   }
-
 
   onSelectCompteur(id: number) {
     this.compteurservice.getData(id).subscribe(
@@ -85,7 +81,6 @@ export class AddReglementComponent implements OnInit {
       }
     );
   }
-
 
   InfoForm() {
     this.service.formData = this.fb.group({
@@ -108,7 +103,7 @@ export class AddReglementComponent implements OnInit {
     this.inscriptionService.getData(id).subscribe(
       response => {
         this.inscription = response;
-        
+
         this.f['matricule'].setValue(this.inscription.matricule);
         this.f['nom'].setValue(this.inscription.nom);
         this.f['prenom'].setValue(this.inscription.prenom);
@@ -175,25 +170,12 @@ export class AddReglementComponent implements OnInit {
     }
     else
     {
-      this.toastr.success('Veuillez vérifier Vos données....'); 
+      this.toastr.success('Veuillez vérifier Vos données....');
     }
-    
   }
-
-
 
   transformDate(date: any) {
     return this.datePipe.transform(date, 'yyyy-MM-dd');
   }
 
 }
-
-
-
-
-
-
-
-
-
-

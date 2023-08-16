@@ -7,20 +7,20 @@
   <form [formGroup]="this.emploiService.formData" (ngSubmit)="onSubmit()">
   <input  type="hidden"  class="form-control" formControlName="id">
   <input  type="hidden"  class="form-control" formControlName="codeEnseignant">
- 
+
   <div class="form-group">
       <label><strong>Numéro : </strong></label>
       <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
-  </div>  
-  
+  </div>
+
   <div class="form-group">
     <label>Année</label>
   <input  type="number"  class="form-control" formControlName="annee"  id="annee">
   </div>
-  
+
   <div class="form-group">
       <label>Semestre</label>
-      
+
       <select class="form-control" formControlName="semestre" required  [ngClass]="{ 'is-invalid': submitted && f['semestre'].errors }">
         <option value="1">1 Semetre</option>
         <option value="2">2 Semetre</option>
@@ -33,32 +33,32 @@
                       <option *ngFor="let item of classeList" value="{{item.code}}">{{item.libelle}}</option>
                   </select>
   </div>
-  
+
   <table class="table table-borderless">
     <thead class="thead-light">
       <th>Jour</th>
       <th>Horaire</th>
       <th>Matiere</th>
-      <th>Enseignant</th> 
-      <th>Salle</th>            
+      <th>Enseignant</th>
+      <th>Salle</th>
       <th>
         <a class="btn btn-sm btn-success text-black" (click)="AddData(null,1)">
             <i class="icon-add_box"></i>Ajouter </a>
       </th>
     </thead>
     <tbody>
-        <tr *ngIf="emploiService.list.length==0" 
+        <tr *ngIf="emploiService.list.length==0"
          [class.text-danger]="!isValid && emploiService.list.length ==0">
             <td class="font-italic text-center" colspan="5">
               Aucune Note sélectionnée ...
             </td>
           </tr>
       <tr *ngFor="let item of emploiService.list;let i=index;">
-      <td>{{item.jour}}</td>  
+      <td>{{item.jour}}</td>
       <td>{{item.horaire}}</td>
       <td>{{item.matiere}}</td>
       <td>{{item.enseignant}}</td>
-      <td>{{item.salle}}</td>      
+      <td>{{item.salle}}</td>
       <td>
         <a class="btn btn-sm btn-info text-white" (click)="AddData(i,1)">
           <i class="fa fa-pencil-square-o"></i></a>
@@ -68,7 +68,7 @@
     </tr>
     </tbody>
   </table>
-  
+
   <div class="form-group">
     <button type="submit" class="btn btn-primary"><i class="icon-database"></i> Valider</button>
     <a class="btn btn-outline-dark ml-1" routerLink="/emplois"><i class="icon-folder-plus"></i> Liste </a>

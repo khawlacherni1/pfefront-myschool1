@@ -75,7 +75,7 @@ export class AddEmploiComponent implements OnInit {
         {
           this.numero =  this.numero + 1;
         }
-       
+
 
         this.f['numero'].setValue(this.numero);
       }
@@ -117,7 +117,7 @@ export class AddEmploiComponent implements OnInit {
     this.emploiService.saveOrUpdate(this.emploiService.formData.value).
       subscribe(data => {
         this.toastr.success('Validation Faite avec Success');
-      
+
         this.emploiService.getAll().subscribe(
           response => { this.emploiService.list = response; }
         );
@@ -134,7 +134,7 @@ export class AddEmploiComponent implements OnInit {
   updateData() {
     this.emploiService.updatedata(this.emploiService.formData.value).
       subscribe(data => {
-     
+
         this.emploiService.getAll().subscribe(
           response => { this.emploiService.list = response; }
         );

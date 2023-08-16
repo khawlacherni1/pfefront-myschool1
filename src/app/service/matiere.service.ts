@@ -14,12 +14,10 @@ export class MatiereService {
   public formData !: FormGroup;
   constructor(private http: HttpClient) { }
 
-
   getData(id: number): Observable<Object> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  
   createData(info: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, info);
   }
@@ -36,7 +34,4 @@ export class MatiereService {
   getAll(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
-
 }
-
-

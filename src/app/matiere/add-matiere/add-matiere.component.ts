@@ -15,22 +15,25 @@ export class AddMatiereComponent implements OnInit {
   title: any;
   num: any;
   code !: string;
+
   constructor(public crudApi: MatiereService, public fb: FormBuilder, public toastr: ToastrService,
-    private router: Router, public dialogRef: MatDialogRef<AddMatiereComponent>) { }
-  get f() { return this.crudApi.formData.controls }
+              private router: Router, public dialogRef: MatDialogRef<AddMatiereComponent>) {
+  }
+
+  get f() {
+    return this.crudApi.formData.controls
+  }
+
   ngOnInit() {
 
     if (this.crudApi.choixmenu == "A") {
       this.infoForm();
-      this.title ="Ajout Matiere";
-    }
-    else
-    {
-      this.title ="Ajout Matiere";
+      this.title = "Ajout Matiere";
+    } else {
+      this.title = "Ajout Matiere";
     }
 
   }
-
 
 
   infoForm() {
@@ -40,15 +43,16 @@ export class AddMatiereComponent implements OnInit {
       libelle: ['', [Validators.required]],
     });
   }
+
   ResetForm() {
     this.crudApi.formData.reset();
   }
+
   onSubmit() {
 
     if (this.crudApi.choixmenu == "A") {
       this.addData();
-    }
-    else {
+    } else {
 
       this.updateData()
     }
@@ -62,25 +66,26 @@ export class AddMatiereComponent implements OnInit {
 
   addData() {
 
-    this.crudApi.createData(this.crudApi.formData.value).
-      subscribe(data => {
-        this.dialogRef.close();
-        this.crudApi.getAll().subscribe(
-          response => { this.crudApi.list = response; }
-        );
-        this.router.navigate(['/Matieres']);
-      });
+    this.crudApi.createData(this.crudApi.formData.value).subscribe(data => {
+      this.dialogRef.close();
+      this.crudApi.getAll().subscribe(
+        response => {
+          this.crudApi.list = response;
+        }
+      );
+      this.router.navigate(['/Matieres']);
+    });
   }
+
   updateData() {
-    this.crudApi.updatedata( this.crudApi.formData.value).
-      subscribe(data => {
-        this.dialogRef.close();
-        this.crudApi.getAll().subscribe(
-          response => { this.crudApi.list = response; }
-        );
-        this.router.navigate(['/Matieres']);
-      });
+    this.crudApi.updatedata(this.crudApi.formData.value).subscribe(data => {
+      this.dialogRef.close();
+      this.crudApi.getAll().subscribe(
+        response => {
+          this.crudApi.list = response;
+        }
+      );
+      this.router.navigate(['/Matieres']);
+    });
   }
-
 }
-

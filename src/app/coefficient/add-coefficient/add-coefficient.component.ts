@@ -27,11 +27,11 @@ export class AddCoefficientComponent implements OnInit {
       public matiereService: MatiereService, public datePipe : DatePipe) { }
       get f() { return this.coefficientService.formData.controls }
     ngOnInit() {
-  
-      if (this.coefficientService.choixmenu == "A") 
-      { this.infoForm() 
-        
-     
+
+      if (this.coefficientService.choixmenu == "A")
+      { this.infoForm()
+
+
       this.title = "Ajout Coefficient";
       this.onSelectCode();
     }
@@ -42,14 +42,12 @@ export class AddCoefficientComponent implements OnInit {
       this.classeService.getAll().subscribe(
         response => { this.classeList = response; }
       );
-      
+
       this.matiereService.getAll().subscribe(
         response => { this.matiereList = response; }
       );
     }
-  
-    
-  
+
     infoForm() {
       this.coefficientService.formData = this.fb.group({
         id: null,
@@ -64,13 +62,13 @@ export class AddCoefficientComponent implements OnInit {
     }
 
     onSelectCode() {
-      
+
       this.coefficientService.getNumero().subscribe(
         response => {
-        
+
           this.num = response;
           this.code = ( 1000 + this.num +1).toString().substring(1);
-        
+
           this.f['code'].setValue(this.code);
         }
       );
@@ -84,26 +82,24 @@ export class AddCoefficientComponent implements OnInit {
           this.addData();
         }
         else {
-    
+
           this.updateData()
         }
-    
-    
     }
-  
+
   lister()
   {
     this.router.navigate(['/coefficients']);
   }
-  
+
     addData() {
-      
+
       this.coefficientService.createData(this.coefficientService.formData.value).
         subscribe(data => {
           this.dialogRef.close();
           this.coefficientService.getAll().subscribe(
             response =>{this.coefficientService.list = response;}
-           );                                            
+           );
           this.router.navigate(['/coefficients']);
         });
     }
@@ -122,16 +118,14 @@ export class AddCoefficientComponent implements OnInit {
     return this.datePipe.transform(date,'yyyy-MM-dd');
   }
   onselectMatiere(ctrl: any) {
-    
+
     this.f['codeMatiere'].setValue( this.matiereList[ctrl.selectedIndex - 1].code);
     this.f['matiere'].setValue( this.matiereList[ctrl.selectedIndex - 1].libelle);
   }
   onselectClasse(ctrl: any) {
-    
+
     this.f['codeClasse'].setValue( this.classeList[ctrl.selectedIndex - 1].code);
     this.f['classe'].setValue( this.classeList[ctrl.selectedIndex - 1].libelle);
   }
-  
-  }
-  
 
+  }

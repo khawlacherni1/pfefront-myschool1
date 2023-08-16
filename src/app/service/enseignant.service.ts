@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators }
   providedIn: 'root'
 })
 export class EnseignantService {
-  private baseUrl = '/api/enseignants';
+  private baseUrl = 'http://localhost:8080/api/enseignants';
   host: string = 'http://localhost:8080';
   addimg: String = 'N';
   choixmenu: string = 'A';
@@ -58,6 +58,3 @@ export class EnseignantService {
     return this.http.get<any>(`${this.baseUrl}/export/excel`, { responseType: 'arraybuffer' as 'json' });
   }
 }
-
-
-

@@ -67,9 +67,3 @@ export class ListNiveauComponent implements OnInit {
   }
 
 }
-
-
-
-
-
-

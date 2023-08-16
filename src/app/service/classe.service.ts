@@ -47,5 +47,3 @@ export class ClasseService {
     return this.http.get(`${this.baseUrl}/all/code`);
   }
 }
-
-

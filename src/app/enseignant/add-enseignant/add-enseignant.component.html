@@ -7,7 +7,7 @@
     <div style="overflow-y: scroll; height:500px;" class="col-md-12 col-md-offset-2">
     <form [formGroup]="this.service.formData" (ngSubmit)="onSubmit()">
         <div class="row m-b-20">
-                        
+
             <table class="table  table-responsive-sm table-responsive-md
                           table-responsive-lg pull-right">
               <td *ngIf="this.service.choixmenu=='M'"><a href="#"><img class="card-img-top img-responsive"
@@ -20,11 +20,11 @@
         <div class="form-group col-md-6">
             <label>Matricule </label>
             <input type="text" class="form-control" formControlName="matricule" readonly>
-            
+
         </div>
         <div class="form-group col-md-6">
             <label>Nom : </label>
-            <input type="text" class="form-control" formControlName="nom" id="nom" 
+            <input type="text" class="form-control" formControlName="nom" id="nom"
             [ngClass]="{ 'is-invalid': submitted && f['nom'].errors }" />
             <div *ngIf="submitted && f['nom'].errors" class="invalid-feedback">
               <div *ngIf="f['nom'].errors['required']">Nom Obligatoire</div>
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group col-md-6">
             <label>Prenom : </label>
-            <input type="text" class="form-control" formControlName="prenom" id="prenom" 
+            <input type="text" class="form-control" formControlName="prenom" id="prenom"
             [ngClass]="{ 'is-invalid': submitted && f['mat'].errors }" />
             <div *ngIf="submitted && f['prenom'].errors" class="invalid-feedback">
               <div *ngIf="f['prenom'].errors['required']">Prenom Obligatoire</div>
@@ -46,7 +46,7 @@
             [ngClass]="{ 'is-invalid': submitted && f['genre'].errors }">
                 <option value="M">Masulin</option>
                 <option value="F">Feminin</option>
-              
+
             </select>
             <div *ngIf="submitted && f['genre'].errors" class="invalid-feedback">
                 <div *ngIf="f['genre'].errors['required']">Genre est Obligatoire</div>
@@ -54,16 +54,16 @@
         </div>
         <div class="form-group col-md-6">
             <label>Année Entrée: </label>
-            <input type="number" class="form-control" formControlName="annee" id="annee" 
+            <input type="number" class="form-control" formControlName="annee" id="annee"
             [ngClass]="{ 'is-invalid': submitted && f['année entrée'].errors }" />
             <div *ngIf="submitted && f['année entrée'].errors" class="invalid-feedback">
               <div *ngIf="f['année entrée'].errors['required']">Année Entrée Obligatoire</div>
-             
+
             </div>
         </div>
         <div class="form-group col-md-6">
             <label>Adresse : </label>
-            <input type="text" class="form-control" formControlName="adresse" id="adresse" 
+            <input type="text" class="form-control" formControlName="adresse" id="adresse"
             [ngClass]="{ 'is-invalid': submitted && f['adresse'].errors }" />
             <div *ngIf="submitted && f['adresse'].errors" class="invalid-feedback">
               <div *ngIf="f['adresse'].errors['required']">Adresse Obligatoire</div>
@@ -72,11 +72,11 @@
         </div>
         <div class="form-group col-md-6">
             <label>Ville : </label>
-            <input type="text" class="form-control" formControlName="ville" id="ville" 
+            <input type="text" class="form-control" formControlName="ville" id="ville"
             [ngClass]="{ 'is-invalid': submitted && f['ville'].errors }" />
             <div *ngIf="submitted && f['ville'].errors" class="invalid-feedback">
               <div *ngIf="f['ville'].errors['required']">Ville Obligatoire</div>
-              
+
             </div>
         </div>
         <div class="form-group col-md-6">
@@ -85,25 +85,25 @@
             [ngClass]="{ 'is-invalid': submitted && f['code postal'].errors }" />
             <div *ngIf="submitted && f['code postal'].errors" class="invalid-feedback">
               <div *ngIf="f['code postal'].errors['required']">Code Postal Obligatoire</div>
-             
-            </div> 
+
+            </div>
         </div>
         <div class="form-group col-md-6">
             <label>Date naissance : </label>
-            <input type="date" class="form-control" formControlName="dateNaissance" id="dateNaissance" 
+            <input type="date" class="form-control" formControlName="dateNaissance" id="dateNaissance"
             [ngClass]="{ 'is-invalid': submitted && f['date naissance'].errors }" />
             <div *ngIf="submitted && f['date naissance'].errors" class="invalid-feedback">
               <div *ngIf="f['date naissance'].errors['required']">Date Naissance Obligatoire</div>
-              
+
             </div>
         </div>
         <div class="form-group col-md-6">
             <label>Lieu : </label>
-            <input type="text" class="form-control" formControlName="lieu" id="lieu" 
+            <input type="text" class="form-control" formControlName="lieu" id="lieu"
             [ngClass]="{ 'is-invalid': submitted && f['lieu'].errors }" />
             <div *ngIf="submitted && f['lieu'].errors" class="invalid-feedback">
               <div *ngIf="f['lieu'].errors['required']">Lieu Obligatoire</div>
-             
+
             </div>
         </div>
         <div class="form-group col-md-6">
@@ -115,10 +115,10 @@
             </select>
             <div *ngIf="submitted && f['niveau scolaire'].errors" class="invalid-feedback">
                 <div *ngIf="f['niveau scolaire'].errors['required']">Niveau Scolaire Obligatoire</div>
-               
+
               </div>
         </div>
-        
+
         <div class="form-group col-md-6">
             <label>Etablissement Origine </label>
             <select class="form-control" formControlName="codeEtablissement" id="codeEtablissement" (change)="OnSelectEtablissement($event.target)"
@@ -128,7 +128,7 @@
             </select>
             <div *ngIf="submitted && f['etablissement origine'].errors" class="invalid-feedback">
                 <div *ngIf="f['etablissement origine'].errors['required']">Etablissement Origine Obligatoire</div>
-               
+
               </div>
         </div>
         <div class="form-group col-md-6">
@@ -140,35 +140,29 @@
             </select>
             <div *ngIf="submitted && f['nationalité'].errors" class="invalid-feedback">
                 <div *ngIf="f['nationalité'].errors['required']">Nationalité Origine Obligatoire</div>
-               
+
               </div>
         </div>
         <div class="form-group col-md-6">
             <label>Télephone : </label>
-            <input type="text" class="form-control" formControlName="tel" id="tel" 
+            <input type="text" class="form-control" formControlName="tel" id="tel"
             [ngClass]="{ 'is-invalid': submitted && f['télephone'].errors }">
             <div *ngIf="submitted && f['télephone'].errors" class="invalid-feedback">
                 <div *ngIf="f['télephone'].errors['required']">Télephone Obligatoire</div>
-               
+
               </div>
         </div>
-        
-        
-        
-        
-        
-        
+
         <div class="form-group col-md-6">
             <label>Cin   : </label>
-            <input type="text" class="form-control" formControlName="cin" id="cin" 
+            <input type="text" class="form-control" formControlName="cin" id="cin"
             [ngClass]="{ 'is-invalid': submitted && f['cin tuteur'].errors }">
             <div *ngIf="submitted && f['cin tuteur'].errors" class="invalid-feedback">
                 <div *ngIf="f['cin tuteur'].errors['required']">Cin  Obligatoire</div>
-               
+
               </div>
         </div>
-        
-       
+
         <div class="form-group col-md-6">
             <label>Email :</label>
             <input type="text" class="form-control form-control-user"  formControlName="email"
@@ -178,7 +172,7 @@
               <div *ngIf="f['email'].errors['email']">Email must be a valid email address</div>
             </div>
           </div>
-    
+
         <div class="form-group">
             <label>File Upload </label>
             <input type="file" accept="image/*" (change)="onSelectFile($event)">
@@ -193,5 +187,3 @@
     </div>
 </div>
 </div>
-
-

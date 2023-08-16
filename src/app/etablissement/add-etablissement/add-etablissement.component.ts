@@ -20,9 +20,9 @@
         private router: Router,public dialogRef:MatDialogRef<AddEtablissementComponent>) { }
         get f() { return this.crudApi.formData.controls }
       ngOnInit() {
-    
-        if (this.crudApi.choixmenu == "A") 
-        { this.infoForm() 
+
+        if (this.crudApi.choixmenu == "A")
+        { this.infoForm()
         this.onSelectCode();
         this.title ="Ajout Etablissement"}
         else
@@ -30,20 +30,20 @@
           this.title ="Modification Etablissement"
         };
       }
-    
+
       onSelectCode() {
-        
+
         this.crudApi.getNumero().subscribe(
           response => {
-          
+
             this.num = response;
             this.code = ( 1000 + this.num +1).toString().substring(1);
-          
+
             this.f['code'].setValue(this.code);
           }
         );
       }
-    
+
       infoForm() {
         this.crudApi.formData = this.fb.group({
           id: null,
@@ -58,31 +58,31 @@
         this.crudApi.formData.reset();
       }
       onSubmit() {
-       
+
           if (this.crudApi.choixmenu == "A") {
             this.addData();
           }
           else {
-      
+
             this.updateData()
           }
-      
-      
+
+
       }
-    
+
     lister()
     {
       this.router.navigate(['/Etablissements']);
     }
-    
+
       addData() {
-        
+
         this.crudApi.createData(this.crudApi.formData.value).
           subscribe(data => {
             this.dialogRef.close();
             this.crudApi.getAll().subscribe(
               response =>{this.crudApi.list = response;}
-             );                                            
+             );
             this.router.navigate(['/Etablissements']);
           });
       }
@@ -96,7 +96,5 @@
             this.router.navigate(['/Etablissements']);
           });
       }
-    
-  }
-  
 
+  }

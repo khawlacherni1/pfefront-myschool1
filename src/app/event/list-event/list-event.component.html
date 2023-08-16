@@ -7,7 +7,7 @@
     <div class="right">
       <a class="btn btn-outline-success" (click)="addEvent()">
         <i class="icon-add_box"></i>Ajout</a>
-    
+
         <input type="text" [(ngModel)]="SearchText" class="form-control bg-light border-5 small"
         placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
       </div>
@@ -47,10 +47,10 @@
   <td>{{item.nombre}}</td>
   <td>{{item.tarif}}</td>
   <td><a href="#"><img class="card-img-top img-responsive"
-      src = "{{this.service.host+'/api/ImgEvents/'+item.id}}" 
+      src = "{{this.service.host+'/api/ImgEvents/'+item.id}}"
       style = "height :100px;width:200px"
      alt=""></a></td>
- 
+
   <td><button class="btn btn-warning btn btn-outline-dark ml-1"  (click) = "selectData(item)">
     <i class="fa fa-pencil-square-o" ></i></button></td>
  <td><button class="btn btn-danger btn btn-outline-dark ml-1" (click) = "removeData(item.code)">
@@ -62,8 +62,3 @@
        <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
      </div>
-
-
-
-
-

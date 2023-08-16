@@ -47,9 +47,6 @@ export class AddEventComponent implements OnInit {
     }
   }
 
-
-
-
   infoForm() {
     this.service.formData = this.fb.group({
       id: null,
@@ -100,10 +97,6 @@ export class AddEventComponent implements OnInit {
     }
 
   }
-
-
-
-
 
   addData() {
     const formData = new FormData();
@@ -160,11 +153,3 @@ export class AddEventComponent implements OnInit {
 
 
 }
-
-
-
-
-
-
-
-

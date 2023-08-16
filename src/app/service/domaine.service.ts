@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators }
 })
 export class DomaineService {
 
-
   // private baseUrl = 'http://localhost:8080/api/domaines';
   private baseUrl = '/api/domaines';
   choixmenu: string = 'A';
@@ -44,4 +43,3 @@ export class DomaineService {
   }
 
 }
-

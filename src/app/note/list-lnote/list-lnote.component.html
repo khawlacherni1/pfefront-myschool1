@@ -2,24 +2,20 @@
     h1 {
       color: black;
       background-color: #1a8e5f;
-      
+
     }
   </style>
       <h1 align = "center">Liste des Notes</h1>
-   
+
   <hr>
 <input type="text" [(ngModel)]="SearchText" class="form-control bg-light border-0 small" placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
 <table class="table table-hover">
 <thead class="thead-light">
   <tr>
-<th scope="col">Matricule</th>  
+<th scope="col">Matricule</th>
 <th scope="col">Nom</th>
 <th scope="col">Note</th>
 <th class="text-center" scope="col">Action</th>
-
-
-
-
 
 <a class="btn btn-outline-success" routerLink="/note"><i class="fa fa-plus-square"></i> Create New</a>
 </tr>
@@ -38,15 +34,9 @@
                 <div class="espace"></div>
         <button class="btn btn-danger " (click)="removeData(item.code)">
                 <i class="icon-trash-2"></i></button>
-              
+
             </div>
 </tr>
 <div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite"></div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate"><ul class="pagination"></ul></div></div></div>
 </tbody>
 </table>
-
-
-
-
-
-

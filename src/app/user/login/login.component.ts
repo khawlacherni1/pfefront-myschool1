@@ -49,9 +49,6 @@ export class LoginComponent implements OnInit {
     }
     const val = this.form.value;
 
-
-
-
     this.userService.login(val.username).subscribe(
 
       res => {

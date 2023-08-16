@@ -39,9 +39,4 @@ export class TypepaiementService {
   getAll(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
-
 }
-
-
-
-

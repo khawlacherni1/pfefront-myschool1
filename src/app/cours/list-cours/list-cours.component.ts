@@ -67,7 +67,3 @@ export class ListCoursComponent implements OnInit {
     this.matDialog.open(AddCoursComponent, dialogConfig);
   }
 }
-
-
-
-

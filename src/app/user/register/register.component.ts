@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(public crudApi: UserService ,public fb: FormBuilder,public toastr: ToastrService,
     private router : Router) { }
-    
+
   ngOnInit() {
     if (this.crudApi.choixmenu == "A")
     {
@@ -39,9 +39,6 @@ export class RegisterComponent implements OnInit {
     }
    }
 
-   
-
-  
   infoForm() {
     this.crudApi.formData = this.fb.group({
         id: null,
@@ -52,13 +49,11 @@ export class RegisterComponent implements OnInit {
         password: [' ', [Validators.required, Validators.minLength(8)]],
         pwdd: ['', Validators.required]
          }, {
-          
+
             validator: MustMatch('password', 'pwdd')
-          
+
       });
     }
-   
-  
 
   onReset() {
     this.submitted = false;
@@ -66,10 +61,10 @@ export class RegisterComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-  
-   
+
+
     const val = this.crudApi.formData.value;
- 
+
       if (this.crudApi.choixmenu == "A")
       {
         this.addData();
@@ -78,15 +73,13 @@ export class RegisterComponent implements OnInit {
       {
        this.updateData()
       }
-  
+
 }
- 
+
 login()
 {
   this.router.navigate(['/login']);
 }
-
-   
 
 addData() {
  const formData = new FormData();
@@ -95,12 +88,12 @@ addData() {
     formData.append('user', JSON.stringify(users));
     formData.append('file', this.userFile);
     this.crudApi.createData(formData).subscribe( data => {
-    this.toastr.success( 'Validation Faite avec Success'); 
+    this.toastr.success( 'Validation Faite avec Success');
     this.crudApi.getAll().subscribe(
       response =>{this.crudApi.list = response;
     }
      );
-    
+
     this.router.navigate(['/users']);
   });
 }
@@ -141,15 +134,4 @@ addData() {
     }
   }
 
-
-
-  
 }
-
-
-
-
-
-
-
-

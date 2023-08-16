@@ -21,7 +21,7 @@ export class CoursService {
   }
 
   getNumero(ann : number) {
-    
+
     return this.http.get(`${this.baseUrl}/7/${ann}`);
   }
 
@@ -48,9 +48,7 @@ export class CoursService {
   }
 
   getMatiere(matricule : string,classe : string): Observable<any> {
-   
+
     return this.http.get(`${this.baseUrl}/${matricule}/${classe}`);
   }
 }
-
-

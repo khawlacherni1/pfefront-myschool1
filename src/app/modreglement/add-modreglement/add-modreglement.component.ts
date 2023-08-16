@@ -20,8 +20,8 @@ export class AddModreglementComponent implements OnInit {
       private router: Router,public dialogRef:MatDialogRef<AddModreglementComponent>) { }
       get f() { return this.crudApi.formData.controls }
     ngOnInit() {
-  
-      if (this.crudApi.choixmenu == "A") 
+
+      if (this.crudApi.choixmenu == "A")
       {
          this.infoForm();
          this.title ="Ajout Mode Réglement";
@@ -31,11 +31,7 @@ export class AddModreglementComponent implements OnInit {
       this.title ="Modification Mode Réglement";
      }
     }
-  
-   
-  
-    
-  
+
     infoForm() {
       this.crudApi.formData = this.fb.group({
         id: null,
@@ -47,31 +43,30 @@ export class AddModreglementComponent implements OnInit {
       this.crudApi.formData.reset();
     }
     onSubmit() {
-     
+
         if (this.crudApi.choixmenu == "A") {
           this.addData();
         }
         else {
-    
+
           this.updateData()
         }
-    
-    
+
     }
-  
+
   lister()
   {
     this.router.navigate(['/modreglements']);
   }
-  
+
     addData() {
-      
+
       this.crudApi.createData(this.crudApi.formData.value).
         subscribe(data => {
           this.dialogRef.close();
           this.crudApi.getAll().subscribe(
             response =>{this.crudApi.list = response;}
-           );                                            
+           );
           this.router.navigate(['/modreglements']);
         });
     }
@@ -85,15 +80,5 @@ export class AddModreglementComponent implements OnInit {
           this.router.navigate(['/modreglements']);
         });
     }
-  
+
 }
-
-
-
-
-
-
-
-
- 
-

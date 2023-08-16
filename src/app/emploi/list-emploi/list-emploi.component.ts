@@ -1,6 +1,4 @@
 
-
-
   import { Component, OnInit, Inject } from '@angular/core';
   import { EmploiService } from '../../service/emploi.service';
   import { ToastrService } from 'ngx-toastr';
@@ -23,12 +21,12 @@
       private matDialog: MatDialog,
       @Inject(MAT_DIALOG_DATA) public data: any,
       public dialogRef: MatDialogRef<AddEmploiComponent>,) { }
-  
+
     ngOnInit() {
-  
+
       this.getData();
     }
-  
+
     getData() {
       this.service.getAll().subscribe(
         response => {
@@ -36,7 +34,7 @@
         }
       );
     }
-  
+
     removeData(id: number) {
       if (window.confirm('Are sure you want to delete this Emploi ?')) {
         this.service.deleteData(id)
@@ -49,20 +47,17 @@
             error => console.log(error));
       }
     }
-    
 
     addEmploi() {
       this.service.choixmenu = "A"
       this.router.navigate(['/emploi']);
     }
-  
+
     selectData(item: any) {
-  
+
       this.service.formData = this.fb.group(Object.assign({}, item));
       this.service.choixmenu = "M"
       this.router.navigate(['/emploi']);
     }
 
-
   }
-  

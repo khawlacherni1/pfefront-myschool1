@@ -12,7 +12,7 @@
       placeholder="Recherche..." aria-label="Search" aria-describedby="basic-addon2">
     </div>
     <hr>
-   
+
 
 
     <div class="table-responsive">
@@ -31,11 +31,11 @@
                     <th class="text-center" scope="col">Reglement</th>
                     <th class="text-center" scope="col">Recu de paiement</th>
 
-                    
+
                 </tr>
             </thead>
             <tbody>
-             
+
                 <tr *ngFor="let item of crudApi.list | paginate: { itemsPerPage: 8, currentPage: p }">
                     <td>{{item.numero}}</td>
                     <td>{{item.matricule}}</td>
@@ -51,23 +51,21 @@
                         <div class="espace"></div>
                         <button class="btn btn-danger " (click)="removeData(item.code)">
                             <i class="fa fa-trash-o"></i></button>
-                            
+
                           </div>
                           </td>
                           <td  class="nav-item"> <button  class="btn btn-success" (click)="Reglement(item.id)">
-                            <i class="fa fa-file-pdf-o"></i>Reglement</button></td> 
+                            <i class="fa fa-file-pdf-o"></i>Reglement</button></td>
                     <td  class="nav-item"> <button  class="btn btn-dark" (click)="impAttestation(item.id)">
-                        <i class="fa fa-file-pdf-o"></i>Edition</button></td>      
-                        
-                  
-                    
+                        <i class="fa fa-file-pdf-o"></i>Edition</button></td>
+
+
+
                 </tr>
             </tbody>
         </table>
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
- 
+
     </div>
 </div>
 </div>
-
-

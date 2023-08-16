@@ -22,13 +22,13 @@ export class ListTarifComponent implements OnInit {
     public dialogRef:MatDialogRef<AddTarifComponent>,) { }
 
   ngOnInit() {
-    
+
     this.getData();
   }
 
   getData() {
     this.crudApi.getAll().subscribe(
-      response => { this.crudApi.list = response; 
+      response => { this.crudApi.list = response;
     }
     );
   }
@@ -52,7 +52,7 @@ export class ListTarifComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="70%";
-    
+
     this.matDialog.open(AddTarifComponent, dialogConfig);
   }
   addTarif()
@@ -66,4 +66,3 @@ export class ListTarifComponent implements OnInit {
     }
 
 }
-

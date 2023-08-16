@@ -38,8 +38,8 @@ export class AddInscriptionComponent implements OnInit {
   ngOnInit() {
 
    /// this.annee = localStorage.getItem('annee');
-   
-    
+
+
     //  let id = this.currentRoute.snapshot.paramMap.get('id');
     if (this.service.choixmenu == "A") {
 
@@ -67,7 +67,7 @@ export class AddInscriptionComponent implements OnInit {
 
 
   getNumero(id: number) {
-    
+
     this.service.getNumero(id).subscribe(
       response => {
         this.numero = response;
@@ -158,7 +158,4 @@ export class AddInscriptionComponent implements OnInit {
       this.f['prenom'].setValue(this.etudiantList[ctrl.selectedIndex - 1].prenom);
     }
   }
-
-
 }
-

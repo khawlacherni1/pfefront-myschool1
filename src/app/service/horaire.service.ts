@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators }
 })
 export class HoraireService {
 
-
   // private baseUrl = 'http://localhost:8080/api/domaines';
   private baseUrl = '/api/horaires';
   choixmenu: string = 'A';
@@ -42,6 +41,4 @@ export class HoraireService {
   getAll(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
-
 }
-

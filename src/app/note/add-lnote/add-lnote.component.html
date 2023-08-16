@@ -2,11 +2,11 @@
   h1 {
     color: black;
     background-color: #1a8e5f;
-    
+
   }
 </style>
     <h1 align = "center"> Note</h1>
- 
+
 <hr>
 <form [formGroup]="this.formData"  (ngSubmit)="onSubmit()">
     <input type="hidden" class="form-control" formControlName="id" id="id">
@@ -25,7 +25,7 @@
     <div class="form-group">
     <label>Note </label>
     <div class="input-group">
-          <input class="form-control" formControlName="moy" id="moy" 
+          <input class="form-control" formControlName="moy" id="moy"
           [class.is-invalid]="!isValid && formData.value.note<0" >
     </div>
     </div>
@@ -34,6 +34,5 @@
       <button type="submit" class="btn btn-dark"><i class="icon-database"></i> Valider</button>
       <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i> Fermer</button>
     </div>
-  
-</form>
 
+</form>

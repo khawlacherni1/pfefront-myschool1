@@ -191,10 +191,3 @@ export class AddNoteComponent implements OnInit {
     return this.datePipe.transform(date, 'yyyy-MM-dd');
   }
 }
-
-
-
-
-
-
-

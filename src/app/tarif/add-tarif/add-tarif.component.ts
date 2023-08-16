@@ -75,7 +75,7 @@ this.title = "Modification tarif"
       id: null,
       code: ['', [Validators.required]],
       codeSpecialite: ['', [Validators.required]],
-      codeDomaine: ['', [Validators.required]],      
+      codeDomaine: ['', [Validators.required]],
       annee: [0, [Validators.required]],
       m1: [0, [Validators.required]],
       m2: [0, [Validators.required]],
@@ -86,14 +86,14 @@ this.title = "Modification tarif"
       d3: ['', [Validators.required]],
       d4: ['', [Validators.required]],
       montant: [0, [Validators.required]],
-     
+
     });
   }
   ResetForm() {
     this.crudApi.formData.reset();
   }
 
- 
+
   onSubmit() {
     const val = this.crudApi.formData.value;
    if (val.montant != (val.trim1 + val.trim2 + val.trim3 + val.frais))
@@ -110,7 +110,7 @@ this.title = "Modification tarif"
    {
     this.toastr.warning(' Vérifier Vos taris .......!');
    }
-   
+
 }
 
   lister() {
@@ -118,7 +118,7 @@ this.title = "Modification tarif"
   }
 
   addData() {
- 
+
     this.crudApi.createData(this.crudApi.formData.value).
       subscribe(data => {
         this.dialogRef.close();
@@ -144,4 +144,3 @@ this.title = "Modification tarif"
   }
 
 }
-

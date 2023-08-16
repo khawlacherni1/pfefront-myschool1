@@ -9,14 +9,12 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators }
 })
 export class NiveauService {
 
-
   // private baseUrl = 'http://localhost:8080/api/niveaus';
   private baseUrl = '/api/niveaus';
   choixmenu: string = 'A';
   list: any = [];
   public formData !: FormGroup;
   constructor(private http: HttpClient) { }
-
 
   getData(id: string): Observable<Object> {
     return this.http.get(`${this.baseUrl}/${id}`);
@@ -44,5 +42,3 @@ export class NiveauService {
   }
 
 }
-
-

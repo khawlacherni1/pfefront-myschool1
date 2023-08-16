@@ -28,9 +28,9 @@ export class AddLreglementComponent implements OnInit {
         public modreglementService :ModreglementService,
         public reglementService :ReglementService,
         public banqueService :BanqueService,
-        
+
         public fb: FormBuilder){}
-     
+
 
   ngOnInit() {
     this.modreglementService.getAll().subscribe(
@@ -43,8 +43,8 @@ export class AddLreglementComponent implements OnInit {
     {
       this.InfoForm();
     }
-    else 
-    this.formData =Object.assign({},this.reglementService.list[this.data.LreglementIndex])    
+    else
+    this.formData =Object.assign({},this.reglementService.list[this.data.LreglementIndex])
 }
 
 
@@ -59,27 +59,24 @@ InfoForm() {
     echeance  : '',
     montant : 0,
   });
-  } 
+  }
 
-  
-  
-  
   onSubmit(){
-  
+
      if(this.validateForm()){
     if(this.data.lreglementIndex==null)
     {
       this.reglementService.list.push(this.formData.value);
-     
+
     }
-     
-    else 
+
+    else
     {
       this.reglementService.list[this.data.lreglementIndex] = this.formData.value;
     }
-  
+
     this.dialogRef.close();
-       
+
   }
   }
   validateForm(){
@@ -99,7 +96,7 @@ InfoForm() {
     }
     else {
 
-     
+
       this.f['modeReglement'].setValue(this.modreglementList[ctrl.selectedIndex - 1].code);
       this.modep = this.modreglementList[ctrl.selectedIndex - 1].code;
       alert(this.modep);
@@ -107,4 +104,3 @@ InfoForm() {
   }
 
 }
-

@@ -17,14 +17,14 @@ export class InscriptionService {
   list: any = [];
   public formData !: FormGroup;
   constructor(private http: HttpClient) { }
-  
+
 
   getData(id: number): Observable<Object> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
   getNumero(ann : number) {
-    
+
     return this.http.get(`${this.baseUrl}/7/${ann}`);
   }
 
@@ -48,5 +48,3 @@ export class InscriptionService {
     return this.http.get(`${this.baseUrl}/ALL/${id}`);
   }
 }
-
-

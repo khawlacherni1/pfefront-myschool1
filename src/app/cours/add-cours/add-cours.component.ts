@@ -31,11 +31,11 @@ export class AddCoursComponent implements OnInit {
       public enseignantService: EnseignantService,public matiereService: MatiereService, public datePipe : DatePipe) { }
       get f() { return this.coursService.formData.controls }
     ngOnInit() {
-  
-      if (this.coursService.choixmenu == "A") 
-      { this.infoForm() 
-        
-     
+
+      if (this.coursService.choixmenu == "A")
+      { this.infoForm()
+
+
       this.title = "Ajout Cours";
       this.date = this.transformDate(new Date(Date.now()));
       this.annee =(this.date).toString().substring(0,4);
@@ -56,9 +56,9 @@ export class AddCoursComponent implements OnInit {
         response => { this.matiereList = response; }
       );
     }
-  
+
     onSelectNumero(ann : number) {
-     
+
       this.coursService.getNumero(ann).subscribe(
         response => {
           this.numero = response;
@@ -69,13 +69,12 @@ export class AddCoursComponent implements OnInit {
           else{
             this.numero = this.numero  +  1 ;
           }
-          
-  
+
           this.f['numero'].setValue(this.numero);
         }
       );
     }
-  
+
     infoForm() {
       this.coursService.formData = this.fb.group({
         id: null,
@@ -95,31 +94,30 @@ export class AddCoursComponent implements OnInit {
       this.coursService.formData.reset();
     }
     onSubmit() {
-     
+
         if (this.coursService.choixmenu == "A") {
           this.addData();
         }
         else {
-    
+
           this.updateData()
         }
-    
-    
+
     }
-  
+
   lister()
   {
     this.router.navigate(['/courss']);
   }
-  
+
     addData() {
-      
+
       this.coursService.createData(this.coursService.formData.value).
         subscribe(data => {
           this.dialogRef.close();
           this.coursService.getAll().subscribe(
             response =>{this.coursService.list = response;}
-           );                                            
+           );
           this.router.navigate(['/courss']);
         });
     }
@@ -154,7 +152,7 @@ export class AddCoursComponent implements OnInit {
     else {
       this.f['matriculeEnseignant'].setValue(this.enseignantList[ctrl.selectedIndex - 1].matricule);
       this.f['nom'].setValue(this.enseignantList[ctrl.selectedIndex - 1].nom);
-    
+
     }
   }
   OnSelectMatiere(ctrl: any) {
@@ -167,5 +165,3 @@ export class AddCoursComponent implements OnInit {
     }
   }
   }
-  
-

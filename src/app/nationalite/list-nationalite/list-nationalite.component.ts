@@ -23,13 +23,13 @@ export class ListNationaliteComponent implements OnInit {
     public dialogRef:MatDialogRef<AddNationaliteComponent>,) { }
 
   ngOnInit() {
-    
+
     this.getData();
   }
 
   getData() {
     this.crudApi.getAll().subscribe(
-      response => { this.crudApi.list = response; 
+      response => { this.crudApi.list = response;
     }
     );
   }
@@ -53,7 +53,7 @@ export class ListNationaliteComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
-    
+
     this.matDialog.open(AddNationaliteComponent, dialogConfig);
   }
   addNationalite()
@@ -67,4 +67,3 @@ export class ListNationaliteComponent implements OnInit {
     }
 
 }
-

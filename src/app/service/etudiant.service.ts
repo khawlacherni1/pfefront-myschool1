@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators }
   providedIn: 'root'
 })
 export class EtudiantService {
-  private baseUrl = '/api/etudiants';
+  private baseUrl = 'http://localhost:8080/api/etudiants';
   host: string = 'http://localhost:8080';
   addimg : String = 'N';
   choixmenu: string = 'A';
@@ -20,12 +20,12 @@ export class EtudiantService {
   getData(id: number): Observable<Object> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
- 
+
   getEtudiant(id: string): Observable<Object> {
     return this.http.get(`${this.baseUrl}/E/${id}`);
   }
   getMatricule(ann :number) {
-    
+
     return this.http.get(`${this.baseUrl}/7/${ann}`);
   }
 
@@ -51,7 +51,7 @@ export class EtudiantService {
   }
 
   getList(code : string): Observable<any> {
-  
+
     return this.http.get(`${this.baseUrl}/cl/${code}`);
   }
   exporToPdf()
@@ -64,6 +64,3 @@ export class EtudiantService {
     return this.http.get<any>(`${this.baseUrl}/export/excel`, { responseType: 'arraybuffer' as 'json' });
   }
 }
-
-
-

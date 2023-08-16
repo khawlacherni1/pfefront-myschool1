@@ -23,9 +23,9 @@ export class ListQcmComponent implements OnInit {
     private datePipe : DatePipe) { }
 
   ngOnInit() {
-    
+
     this.refreshListe();
-    
+
   }
 refreshListe(){
   this.service.getAll().subscribe(
@@ -33,7 +33,6 @@ refreshListe(){
    );
 
 }
-
 
 removeData(id: any) {
   if (window.confirm('Are sure you want to delete this Cours ?')) {
@@ -54,7 +53,7 @@ newQcm()
   }
 
 selectData(item :any){
-  
+
   this.service.formData = this.fb.group(Object.assign({},item));
   this.service.choixmenu ="M"
   this.router.navigate(['/qcm']);

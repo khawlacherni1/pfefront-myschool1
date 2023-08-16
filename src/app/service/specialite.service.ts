@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators }
 })
 export class SpecialiteService {
 
-
   // private baseUrl = 'http://localhost:8080/api/specialite';
   private baseUrl = '/api/specialites';
   choixmenu: string = 'A';
@@ -42,7 +41,4 @@ export class SpecialiteService {
   getAll(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
-
 }
-
-

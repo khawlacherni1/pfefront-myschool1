@@ -33,15 +33,15 @@ export class AddLemploiComponent implements OnInit {
   get f() { return this.formData.controls; }
 
   ngOnInit() {
- 
+
     if(this.data.lemploiIndex==null)
     {
       this.InfoForm();
-      
+
     }
-    else 
+    else
     {
-      
+
      this.formData =this.fb.group(Object.assign({},this.emploiService.list[this.data.lemploiIndex]));
     }
     this.horaireService.getAll().subscribe(
@@ -64,12 +64,8 @@ export class AddLemploiComponent implements OnInit {
         this.enseignantList = response
       }
     )
-   
+
 }
-
-
-
-
   InfoForm() {
     this.formData = this.fb.group({
       id: null,
@@ -92,7 +88,7 @@ onSelectHoraire(ctrl :any){
   this.f['horaire'].setValue(this.horaireList[ctrl.selectedIndex - 1].heure);
   this.f['codeHoraire'].setValue(this.horaireList[ctrl.selectedIndex - 1].code);
 }
- 
+
 onSelectJour(ctrl :any){
   this.f['jour'].setValue(this.jourList[ctrl.selectedIndex - 1].libelle);
   this.f['codeJour'].setValue(this.jourList[ctrl.selectedIndex - 1].code);
@@ -108,9 +104,6 @@ onSelectEnseignant(ctrl :any){
   this.f['enseignant'].setValue(this.enseignantList[ctrl.selectedIndex - 1].nom);
 
 }
-
-
-
 
 onSubmit() {
   if(this.data.lemploiIndex==null)
@@ -134,6 +127,3 @@ validateForm(formData: any){
     return this.isValid;
 }
 }
-
-
-

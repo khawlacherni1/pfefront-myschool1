@@ -65,4 +65,3 @@ export class ListCoefficientComponent implements OnInit {
     this.matDialog.open(AddCoefficientComponent, dialogConfig);
   }
 }
-

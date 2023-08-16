@@ -2,11 +2,11 @@
     h1 {
       color: black;
       background-color: #1a8e5f;
-      
+
     }
   </style>
       <h1 align = "center"> Ligne Emploi</h1>
-   
+
   <hr>
   <form [formGroup]="this.formData"  (ngSubmit)="onSubmit()">
       <input type="hidden" class="form-control" formControlName="id" id="id">
@@ -47,7 +47,5 @@
         <button type="submit" class="btn btn-primary"><i class="icon-database"></i> Valider</button>
         <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i> Fermer</button>
       </div>
-    
+
   </form>
-  
-  

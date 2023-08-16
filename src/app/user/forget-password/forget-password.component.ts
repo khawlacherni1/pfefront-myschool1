@@ -32,9 +32,6 @@ export class ForgetPasswordComponent implements OnInit {
       password: ['', Validators.required]
     });
   }
-
-
-
   onReset() {
     this.submitted = false;
     this.dialogRef.close();
@@ -56,5 +53,3 @@ export class ForgetPasswordComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 }
-  
-  

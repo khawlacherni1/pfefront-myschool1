@@ -6,27 +6,27 @@
   <div class="card-body">
   <form [formGroup]="this.qcmService.formData" (ngSubmit)="onSubmit()">
   <input  type="hidden"  class="form-control" formControlName="id">
-  
+
   <div class="form-group row col-md-12">
   <div class="form-group col-md-6">
       <label><strong>Numéro : </strong></label>
       <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
-  </div>  
-  
+  </div>
+
   <div class="col-md-6 form-group">
     <label>Année</label>
   <input  type="number"  class="form-control" formControlName="annee"  id="annee">
   </div>
   <div class="col-md-6">
     <label>Semestre</label>
-    
+
     <select class="form-control" formControlName="semestre" required  [ngClass]="{ 'is-invalid': submitted && f['semestre'].errors }">
       <option value="1">1 Semetre</option>
       <option value="2">2 Semetre</option>
   </select>
 </div>
-  
-  
+
+
   <div class="col-md-6 form-group">
     <label>Classe </label>
                   <select class="form-control" formControlName="codeClasse" (change)="onselectClasse($event.target)">
@@ -55,20 +55,20 @@
       </th>
     </thead>
     <tbody>
-        <tr *ngIf="qcmService.list.length==0" 
+        <tr *ngIf="qcmService.list.length==0"
          [class.text-danger]="!isValid && qcmService.list.length ==0">
             <td class="font-italic text-center" colspan="5">
               Aucune Ligne sélectionnée ...
             </td>
           </tr>
       <tr *ngFor="let item of qcmService.list;let i=index;">
-      <td>{{item.ligne}}</td>  
+      <td>{{item.ligne}}</td>
       <td>{{item.question}}</td>
       <td>{{item.reponse}}</td>
       <td>{{item.reponse1}}</td>
       <td>{{item.reponse2}}</td>
       <td>{{item.reponse3}}</td>
-      
+
       <td>
         <a class="btn btn-sm btn-info text-white" (click)="AddData(i,1)">
           <i class="fa fa-pencil-square-o"></i></a>
@@ -78,16 +78,15 @@
     </tr>
     </tbody>
   </table>
-  
+
 </div>
-  
+
   <div class="form-group">
     <button type="submit" class="btn btn-primary"><i class="icon-database"></i> Valider</button>
     <a class="btn btn-outline-dark ml-1" routerLink="/qcms"><i class="icon-folder-plus"></i> Liste </a>
   </div>
-  
-  
+
   </form>
   </div>
 </div>
-  
+

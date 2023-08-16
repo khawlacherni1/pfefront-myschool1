@@ -85,7 +85,7 @@ export class AddQcmComponent implements OnInit {
       classe: ['', [Validators.required]],
       question: ['', [Validators.required]],
       reponse: [0, [Validators.required]],
-     
+
       lqcms: [],
     });
   }
@@ -98,7 +98,7 @@ export class AddQcmComponent implements OnInit {
     this.router.navigate(['/notes']);
   }
 
-  
+
   onSubmit() {
     this.submitted = true
       this.qcmService.saveOrUpdate(this.qcmService.formData.value).
@@ -134,15 +134,13 @@ export class AddQcmComponent implements OnInit {
         this.matiereList = response
       }
     );
-    
+
   }
-
-
   onselectMatiere(ctrl: any) {
     this.codeMatiere= this.matiereList[ctrl.selectedIndex - 1].codeMatiere;
     this.f['codeMatiere'].setValue(this.codeMatiere);
     this.f['matiere'].setValue(this.matiereList[ctrl.selectedIndex - 1].matiere);
-    
+
   }
 
 
@@ -160,5 +158,4 @@ export class AddQcmComponent implements OnInit {
 
     });
   }
-
 }

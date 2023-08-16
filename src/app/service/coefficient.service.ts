@@ -21,7 +21,7 @@ export class CoefficientService {
   getNumero() {
     return this.http.get(`${this.baseUrl}/7`);
   }
-  
+
   createData(info: Object): Observable<Object> {
     alert("add coefficients");
     return this.http.post(`${this.baseUrl}`, info);
@@ -45,4 +45,3 @@ export class CoefficientService {
     return this.http.get(`${this.baseUrl}/${classe}/${matiere}`);
   }
 }
-

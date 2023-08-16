@@ -9,14 +9,12 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators }
 })
 export class ModreglementService {
 
-
   // private baseUrl = 'http://localhost:8081/api/modreglements';
   private baseUrl = '/api/modreglements';
   choixmenu: string = 'A';
   list: any = [];
   public formData !: FormGroup;
   constructor(private http: HttpClient) { }
-
 
   getData(id: string): Observable<Object> {
     return this.http.get(`${this.baseUrl}/${id}`);
@@ -44,8 +42,3 @@ export class ModreglementService {
   }
 
 }
-
-
-
-
-

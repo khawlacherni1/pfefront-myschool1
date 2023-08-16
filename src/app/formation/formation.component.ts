@@ -12,5 +12,4 @@ export class FormationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

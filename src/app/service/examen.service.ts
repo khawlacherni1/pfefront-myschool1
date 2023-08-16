@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators } 
   providedIn: 'root'
 })
 export class ExamenService {
-  private baseUrl = '/api/examens';
+  private baseUrl = 'http://localhost:8080/api/examens';
   parametre: any = {};
   host: string = 'http://localhost:8080';
   choixmenu: string = 'A';
@@ -21,7 +21,7 @@ export class ExamenService {
   getNumero(annee : any) {
     return this.http.get(`${this.baseUrl}/7/${annee}`);
   }
- 
+
   createData(formData: FormData): Observable<any> {
 
     // commentaire
@@ -40,11 +40,4 @@ export class ExamenService {
 
     return this.http.get(`${this.baseUrl}`);
   }
-
-  
 }
-
-
-
-
-

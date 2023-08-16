@@ -113,7 +113,6 @@ export class AddExamenComponent implements OnInit{
     this.service.formData.reset();
   }
 
-
   lister() {
     this.router.navigate(['/Examens']);
   }
@@ -139,7 +138,7 @@ export class AddExamenComponent implements OnInit{
       this.router.navigate(['/examens']);
     });
    }
-   
+
      updateData()
      {
        const formData = new FormData();
@@ -167,13 +166,13 @@ export class AddExamenComponent implements OnInit{
         this.matiereList = response
       }
     );
-   
+
   }
   onselectMatiere(ctrl: any) {
     this.codeMatiere = this.matiereList[ctrl.selectedIndex - 1].codeMatiere;
     this.f['codeMatiere'].setValue(this.codeMatiere);
     this.f['matiere'].setValue(this.matiereList[ctrl.selectedIndex - 1].matiere);
-    
+
   }
 
 
@@ -203,11 +202,3 @@ export class AddExamenComponent implements OnInit{
   }
 
 }
-
-
-
-
-
-
-
-

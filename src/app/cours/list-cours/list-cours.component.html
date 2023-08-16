@@ -23,9 +23,9 @@
                         <th scope="col">Classe</th>
                         <th scope="col">Enseignant </th>
                         <th scope="col">Matiere </th>
-    
+
                         <th *ngIf="this.userService.admin || this.userService.rit" class="text-center" scope="col">Action</th>
-                       
+
                     </tr>
                 </thead>
                 <tbody>
@@ -44,16 +44,14 @@
                                   <div class="espace"></div>
                           <button *ngIf="this.userService.admin || this.userService.rit" class="btn btn-danger " (click)="removeData(item.code)">
                             <i class="fa fa-trash-o"></i></button>
-                                
+
                               </div>
                               </td>
                     </tr>
                 </tbody>
             </table>
             <pagination-controls (pageChange)="p = $event"></pagination-controls>
-     
+
         </div>
     </div>
 </div>
-    
-    

@@ -6,7 +6,7 @@ import { Component, OnInit,Inject } from '@angular/core';
   import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule,Validators }
   from '@angular/forms';
   import { RegisterComponent } from '../../user/register/register.component';
-  
+
   @Component({
     selector: 'app-list-user',
     templateUrl: './list-user.component.html',
@@ -14,7 +14,7 @@ import { Component, OnInit,Inject } from '@angular/core';
     ]
   })
   export class ListUserComponent implements OnInit {
-    
+
     p: number = 1;
     SearchText:any;
     control: FormControl = new FormControl('');
@@ -23,9 +23,9 @@ import { Component, OnInit,Inject } from '@angular/core';
       private matDialog: MatDialog,
       @Inject(MAT_DIALOG_DATA) public data: any,
       public dialogRef:MatDialogRef<RegisterComponent>,) { }
-   
+
     ngOnInit() {
-      
+
       this.getData();
     }
     addUser()
@@ -38,25 +38,21 @@ import { Component, OnInit,Inject } from '@angular/core';
       //dialogConfig.data="gdddd";
       this.matDialog.open(RegisterComponent, dialogConfig);
     }
-   
-    
-  
-    
+
     getData() {
       this.crudApi.getAll().subscribe(
         response =>{this.crudApi.list = response;}
        );
-     
+
     }
-    
-   
+
     removeData(id: number) {
       if (window.confirm('Are sure you want to delete this User ?')) {
       this.crudApi.deleteData(id)
         .subscribe(
           data => {
             console.log(data);
-            this.toastr.warning(' data successfully deleted!'); 
+            this.toastr.warning(' data successfully deleted!');
             this.getData();
           },
           error => console.log(error));
@@ -69,9 +65,7 @@ import { Component, OnInit,Inject } from '@angular/core';
       dialogConfig.autoFocus = true;
       dialogConfig.disableClose = true;
       dialogConfig.width="50%";
-      
+
       this.matDialog.open(RegisterComponent, dialogConfig);
     }
   }
-  
-

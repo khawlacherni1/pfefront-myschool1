@@ -19,7 +19,7 @@ export class InstitutService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
- 
+
   getCode() {
     return this.http.get(`${this.baseUrl}/7`);
   }
@@ -54,6 +54,3 @@ export class InstitutService {
     return this.http.get<any>(`${this.baseUrl}/export/excel`, { responseType: 'arraybuffer' as 'json' });
   }
 }
-
-
-

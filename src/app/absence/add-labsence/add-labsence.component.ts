@@ -16,23 +16,18 @@ from '@angular/forms';
 export class AddLabsenceComponent {
   formData!: FormGroup;
   isValid:boolean=true;
-  
+
   constructor( public service:LabsenceService,private toastr :ToastrService,
         @Inject(MAT_DIALOG_DATA)  public data:any,
         public dialogRef:MatDialogRef<AddLabsenceComponent>,
         private etudiantService:EtudiantService,
         private AbsenceService:AbsenceService,public fb: FormBuilder){}
         get f() { return this.formData.controls; }
-       
 
   ngOnInit() {
-   
+
      this.formData =this.fb.group(Object.assign({},this.etudiantService.list[this.data.lAbsenceIndex]));
     }
-  
-
-
-
 InfoForm() {
   this.formData = this.fb.group({
       id: null,
@@ -40,37 +35,17 @@ InfoForm() {
       matricule : 0,
       nom : '',
       absent : 'O',
-      
-      
     });
-  } 
-
-
-
-
-
-
+  }
 onSubmit() {
-  
-
   this.etudiantService.list[this.data.lAbsenceIndex] = this.formData.value;
 
 this.dialogRef.close();
-
- 
 }
-
 validateForm(formData:any){
   this.isValid=true;
   if(formData.matricule==0)
     this.isValid=false;
-    
     return this.isValid;
 }
 }
-
-
-
-
-
-

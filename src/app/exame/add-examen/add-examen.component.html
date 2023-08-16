@@ -11,19 +11,19 @@
   <div class="form-group col-md-6">
       <label><strong>Numéro : </strong></label>
       <input  type="text"  class="form-control" formControlName="numero" id="numero" readonly>
-  </div>  
-  
+  </div>
+
   <div class="col-md-6 form-group">
     <label>Année</label>
   <input  type="number"  class="form-control" formControlName="annee"  id="annee">
   </div>
   <div class="col-md-6 form-group">
     <label>Enseignant  </label>
-    <input class="form-control" formControlName="enseignant" id="enseignant" readonly>          
+    <input class="form-control" formControlName="enseignant" id="enseignant" readonly>
   </div>
   <div class="col-md-6">
       <label>Semestre</label>
-      
+
       <select class="form-control" formControlName="semestre" required  [ngClass]="{ 'is-invalid': submitted && f['semestre'].errors }">
         <option value="1">1 Semetre</option>
         <option value="2">2 Semetre</option>
@@ -43,20 +43,19 @@
                       <option *ngFor="let item of matiereList" value="{{item.codeMatiere}}">{{item.matiere}}</option>
                   </select>
   </div>
-  
+
   <div class="form-group">
     <label>File Upload </label>
     <input type="file" accept="image/*" (change)="onSelectFile($event)">
     <img [src]="imgURL" height="200" *ngIf="imgURL">
   </div>
-  
+
   <div class="form-group">
     <button type="submit" class="btn btn-primary"><i class="icon-database"></i> Valider</button>
     <button type="button" class="btn btn-outline-dark ml-1" [mat-dialog-close]><i class="icon-x-square"></i> Fermer</button>
   </div>
-  
+
   </div>
   </form>
     </div>
   </div>
-  

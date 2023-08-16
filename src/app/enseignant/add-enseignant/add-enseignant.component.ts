@@ -54,25 +54,25 @@ export class AddEnseignantComponent implements OnInit {
       this.title = "Ajout Enseignant";
       this.date = this.transformDate(new Date(Date.now()));
       this.annee = (this.date).toString().substring(0, 4);
-    
+
       this.f['annee'].setValue(this.annee);
       this.onSelectMatricule(this.annee);
     }
-    else { 
+    else {
       this.title = "Modification Enseignant";
       this.id = this.service.formData.value.id;
      }
-    
+
     this.nationaliteService.getAll().subscribe(
       response => { this.nationaliteList = response; }
     );
-   
+
     this.niveauService.getAll().subscribe(
       response => { this.niveauList = response; }
-    );    
+    );
     this.etablissementService.getAll().subscribe(
       response => { this.etablissementList = response; }
-    );  
+    );
   }
 
   infoForm() {
@@ -140,7 +140,7 @@ export class AddEnseignantComponent implements OnInit {
       this.isValid = false;
       this.toastr.warning('Vérifier Année de Naissance ....');
     }
-     
+
     return this.isValid;
   }
 
@@ -176,8 +176,8 @@ export class AddEnseignantComponent implements OnInit {
   {
     this.toastr.warning('Vérifier Vos données....');
   }
-    
-   
+
+
   }
   updateData() {
     this.service.updatedata(this.service.formData.value).
@@ -215,7 +215,7 @@ export class AddEnseignantComponent implements OnInit {
     return this.datePipe.transform(date, 'yyyy-MM-dd');
   }
 
-  OnSelectClasse(ctrl: any) { 
+  OnSelectClasse(ctrl: any) {
     if (ctrl.selectedIndex == 0) {
       this.f['classe'].setValue('');
     }
@@ -224,11 +224,11 @@ export class AddEnseignantComponent implements OnInit {
     }
 
   }
-  OnSelectNationalite(ctrl: any) { 
+  OnSelectNationalite(ctrl: any) {
     this.f['codeNationalite'].setValue( this.nationaliteList[ctrl.selectedIndex - 1].code);
     this.f['nationalite'].setValue( this.nationaliteList[ctrl.selectedIndex - 1].libelle);
   }
-  OnSelectEtablissement(ctrl: any) { 
+  OnSelectEtablissement(ctrl: any) {
     if (ctrl.selectedIndex == 0) {
       this.f['etablisement'].setValue('');
     }
@@ -237,5 +237,3 @@ export class AddEnseignantComponent implements OnInit {
     }
   }
 }
-
-

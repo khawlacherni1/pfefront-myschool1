@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AddExamenComponent } from '../../exame/add-examen/add-examen.component';
-  
+
   @Component({
     selector: 'app-list-examen',
     templateUrl: './list-examen.component.html',
@@ -14,7 +14,7 @@ import { AddExamenComponent } from '../../exame/add-examen/add-examen.component'
     ]
   })
   export class ListExamenComponent {
- 
+
       Examen :any;
       SearchText:any;
       p :number = 1;
@@ -23,12 +23,12 @@ import { AddExamenComponent } from '../../exame/add-examen/add-examen.component'
         private matDialog: MatDialog,public userService: UserService,
         @Inject(MAT_DIALOG_DATA) public data: any,
         public dialogRef: MatDialogRef<AddExamenComponent>,) { }
-    
+
       ngOnInit() {
-    
+
         this.getData();
       }
-    
+
       getData() {
         this.service.getAll().subscribe(
           response => {
@@ -36,7 +36,7 @@ import { AddExamenComponent } from '../../exame/add-examen/add-examen.component'
           }
         );
       }
-    
+
       removeData(id : number) {
         if (window.confirm('Are sure you want to delete this Examen ?')) {
           this.service.deleteData(id)
@@ -50,14 +50,14 @@ import { AddExamenComponent } from '../../exame/add-examen/add-examen.component'
         }
       }
       selectData(item: any) {
-  
+
         this.service.choixmenu = "M";
         this.service.formData = this.fb.group(Object.assign({}, item));
         const dialogConfig = new MatDialogConfig();
         dialogConfig.autoFocus = true;
         dialogConfig.disableClose = true;
         dialogConfig.width = "80%";
-    
+
         this.matDialog.open(AddExamenComponent, dialogConfig);
       }
       addExamen() {
@@ -70,13 +70,3 @@ import { AddExamenComponent } from '../../exame/add-examen/add-examen.component'
         this.matDialog.open(AddExamenComponent, dialogConfig);
       }
     }
-    
-    
-    
-    
-      
-    
-    
-    
-    
-    

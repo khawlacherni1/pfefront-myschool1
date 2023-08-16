@@ -15,7 +15,7 @@ export class ReglementService {
   listReglement: any = [];
   id : any;
   Label  = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin','Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre','Decembre'];
- 
+
   public formData !: FormGroup;
   constructor(private http: HttpClient) { }
 
@@ -33,7 +33,7 @@ export class ReglementService {
   }
 
   getMontant(annee : number, mois :number) {
-     
+
     return this.http.get(`${this.baseUrl}/${annee}/${mois}`);
   }
   createData(info: Object): Observable<Object> {
@@ -60,5 +60,3 @@ export class ReglementService {
     return this.http.get(`${this.baseUrl}/E/${mat}/${d1}/${d2}`);
   }
 }
-
-

@@ -6,7 +6,7 @@
   import { FormBuilder } from '@angular/forms';
   import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   import { AddEtablissementComponent } from '../../etablissement/add-etablissement/add-etablissement.component';
-  
+
   @Component({
     selector: 'app-list-etablissement',
     templateUrl: './list-etablissement.component.html',
@@ -22,12 +22,12 @@
       private matDialog: MatDialog,
       @Inject(MAT_DIALOG_DATA) public data: any,
       public dialogRef: MatDialogRef<AddEtablissementComponent>,) { }
-  
+
     ngOnInit() {
-  
+
       this.getData();
     }
-  
+
     getData() {
       this.crudApi.getAll().subscribe(
         response => {
@@ -35,7 +35,7 @@
         }
       );
     }
-  
+
     removeData(id: number) {
       if (window.confirm('Are sure you want to delete this Etablissement ?')) {
         this.crudApi.deleteData(id)
@@ -55,7 +55,7 @@
       dialogConfig.autoFocus = true;
       dialogConfig.disableClose = true;
       dialogConfig.width = "70%";
-  
+
       this.matDialog.open(AddEtablissementComponent, dialogConfig);
     }
     addEtablissement() {
@@ -66,6 +66,5 @@
       dialogConfig.width = "70%";
       this.matDialog.open(AddEtablissementComponent, dialogConfig);
     }
-  
+
   }
-  

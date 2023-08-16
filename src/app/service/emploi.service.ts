@@ -16,7 +16,7 @@ export class EmploiService {
   constructor(private http: HttpClient) { }
 
   saveOrUpdate(info: Object) {
-   
+
     return this.http.post(`${this.baseUrl}`,info);
    }
   getData(id: number): Observable<Object> {

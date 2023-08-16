@@ -1,6 +1,4 @@
 
-
-
   import { Component, OnInit, Inject } from '@angular/core';
   import { EventService } from '../../service/event.service';
   import { ToastrService } from 'ngx-toastr';
@@ -27,14 +25,14 @@
       @Inject(MAT_DIALOG_DATA) public data: any,
       public userService: UserService,
       public dialogRef: MatDialogRef<AddEventComponent>,) { }
-  
+
     ngOnInit() {
-  
+
         this.getData();
-  
+
       }
-  
- 
+
+
     addEvent() {
       this.service.choixmenu = "A";
       const dialogConfig = new MatDialogConfig();
@@ -44,25 +42,18 @@
       //dialogConfig.data="gdddd";
       this.matDialog.open(AddEventComponent, dialogConfig);
     }
-  
-  
-  
-  
+
     getData() {
-      
+
       this.service.getAll().subscribe(
         response => {
-          
+
           this.service.list = response;
         }
       );
-  
+
     }
-  
-  
-  
-   
-  
+
     removeData(id: number) {
       if (window.confirm('Are sure you want to delete this event ?')) {
         this.service.deleteData(id)
@@ -70,9 +61,9 @@
             data => {
               console.log(data);
               this.toastr.warning(' data successfully deleted!');
-              
+
                 this.getData();
-              
+
             },
             error => console.log(error));
       }
@@ -84,9 +75,8 @@
       dialogConfig.autoFocus = true;
       dialogConfig.disableClose = true;
       dialogConfig.width = "80%";
-  
+
       this.matDialog.open(AddEventComponent, dialogConfig);
     }
-    
+
   }
-  

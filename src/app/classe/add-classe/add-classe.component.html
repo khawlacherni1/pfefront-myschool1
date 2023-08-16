@@ -6,7 +6,7 @@
   <div class="card-body">
           <form [formGroup]="this.crudApi.formData" (ngSubmit)="onSubmit()">
             <input type="hidden"  formControlName="id" id="id">
-            <div class="form-group"> 
+            <div class="form-group">
               <label>Code </label>
               <input type="text" class="form-control" formControlName="code" id="code" readonly>
             </div>
@@ -42,6 +42,3 @@
           </form>
   </div>
 </div>
-      
-      
-    

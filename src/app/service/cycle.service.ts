@@ -9,7 +9,6 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators }
 })
 export class CycleService {
 
-
   // private baseUrl = 'http://localhost:8080/api/cycles';
   private baseUrl = '/api/cycles';
   choixmenu: string = 'A';
@@ -44,5 +43,3 @@ export class CycleService {
   }
 
 }
-
-

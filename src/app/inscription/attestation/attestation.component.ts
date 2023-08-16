@@ -10,8 +10,8 @@ import { TarifService } from '../../service/tarif.service';
 @Component({
   selector: 'app-attestation',
   templateUrl: './attestation.component.html',
-  styleUrls: [ 
-    
+  styleUrls: [
+
    ]
 })
 
@@ -47,9 +47,7 @@ export class AttestationComponent implements OnInit {
         );
       }
     );
-   
-   
-  
+
   }
 
   getInstitut() {
@@ -69,18 +67,12 @@ export class AttestationComponent implements OnInit {
   }
   impAttestation() {
     let DATA: any = document.getElementById('attestation');
-   // const doc = new jsPDF('letter')
-   // const ta = document.getElementById('attestation');
-  //  doc.fromHTML(ta, 0, 0);
-  //  doc.save('demo.pdf')
 
     html2canvas(DATA).then((canvas :any) => {
      let fileWidth = 208;
       let fileHeight = (canvas.height * fileWidth) / canvas.width;
-     // const FILEURI = canvas.toDataURL('image/png');
       let PDF = new jsPDF('p', 'mm', 'a4');
       let position = 0;
-  //    PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
       PDF.save('attestation.pdf');
     });
 }

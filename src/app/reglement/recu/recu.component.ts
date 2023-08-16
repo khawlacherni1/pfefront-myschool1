@@ -10,7 +10,7 @@ import { InstitutService } from '../../service/institut.service';
   templateUrl: './recu.component.html',
 
   styleUrls: [
-    
+
   ]
 })
 export class RecuComponent implements OnInit {
@@ -50,9 +50,6 @@ export class RecuComponent implements OnInit {
   }
 
  public impAttestation() :void {
-   
+
     };
   }
-
-
-

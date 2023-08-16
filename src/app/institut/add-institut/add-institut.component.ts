@@ -20,8 +20,8 @@
         private router: Router,public dialogRef:MatDialogRef<AddInstitutComponent>) { }
         get f() { return this.crudApi.formData.controls }
       ngOnInit() {
-    
-        if (this.crudApi.choixmenu == "A") 
+
+        if (this.crudApi.choixmenu == "A")
         { this.infoForm() ;
         this.title ="Ajout Institut";
         this.onSelectCode();
@@ -31,9 +31,9 @@
           this.title ="Modification Institut"
         };
       }
-    
-      
-    
+
+
+
       infoForm() {
         this.crudApi.formData = this.fb.group({
           id: null,
@@ -51,43 +51,43 @@
         this.crudApi.formData.reset();
       }
       onSelectCode() {
-      
+
         this.crudApi.getCode().subscribe(
           response => {
-          
+
             this.num = response;
             this.code = ( 1000 + this.num +1).toString().substring(1);
-          
+
             this.f['code'].setValue(this.code);
           }
         );
       }
       onSubmit() {
-       
+
           if (this.crudApi.choixmenu == "A") {
             this.addData();
           }
           else {
-      
+
             this.updateData()
           }
-      
-      
+
+
       }
-    
+
     lister()
     {
       this.router.navigate(['/Instituts']);
     }
-    
+
       addData() {
-        
+
         this.crudApi.createData(this.crudApi.formData.value).
           subscribe(data => {
             this.dialogRef.close();
             this.crudApi.getAll().subscribe(
               response =>{this.crudApi.list = response;}
-             );                                            
+             );
             this.router.navigate(['/instituts']);
           });
       }
@@ -101,7 +101,5 @@
             this.router.navigate(['/instituts']);
           });
       }
-    
-  }
-  
 
+  }

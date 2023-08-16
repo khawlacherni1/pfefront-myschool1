@@ -67,4 +67,3 @@ export class ListModreglementComponent implements OnInit {
   }
 
 }
-

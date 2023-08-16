@@ -9,14 +9,12 @@ import { FormBuilder, FormGroup, FormControl, ReactiveFormsModule, Validators }
 })
 export class TarifService {
 
-
   // private baseUrl = 'http://localhost:8080/api/tarifs';
   private baseUrl = '/api/tarifs';
   choixmenu: string = 'A';
   list: any = [];
   public formData !: FormGroup;
   constructor(private http: HttpClient) { }
-
 
   getData(id: string): Observable<Object> {
     return this.http.get(`${this.baseUrl}/${id}`);
@@ -45,6 +43,3 @@ export class TarifService {
   }
 
 }
-
-
-

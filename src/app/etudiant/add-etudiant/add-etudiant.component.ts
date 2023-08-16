@@ -57,16 +57,16 @@ export class AddEtudiantComponent implements OnInit {
       this.title = "Ajout Etudiant";
       this.date = this.transformDate(new Date(Date.now()));
       this.annee = (this.date).toString().substring(0, 4);
-    
+
       this.f['annee'].setValue(this.annee);
       this.onSelectMatricule(this.annee);
-      
+
     }
-    else { 
+    else {
       this.title = "Modification Etudiant";
       this.id = this.service.formData.value.id;
      }
-    
+
     this.nationaliteService.getAll().subscribe(
       response => { this.nationaliteList = response; }
     );
@@ -75,10 +75,10 @@ export class AddEtudiantComponent implements OnInit {
     );
     this.niveauService.getAll().subscribe(
       response => { this.niveauList = response; }
-    );    
+    );
     this.etablissementService.getAll().subscribe(
       response => { this.etablissementList = response; }
-    );  
+    );
   }
 
   infoForm() {
@@ -111,7 +111,7 @@ export class AddEtudiantComponent implements OnInit {
     });
   }
   onSelectMatricule(ann: number) {
-   
+
     this.service.getMatricule(ann).subscribe(
       response => {
         this.numero = response;
@@ -123,7 +123,7 @@ export class AddEtudiantComponent implements OnInit {
         {
           this.numero =  this.numero + 1;
         }
-        
+
 
         this.f['matricule'].setValue(this.numero);
       }
@@ -155,11 +155,9 @@ export class AddEtudiantComponent implements OnInit {
       this.isValid = false;
       this.toastr.warning('Vérifier Année de Naissance ....');
     }
-     
+
     return this.isValid;
   }
-
-
   addData() {
  //   this.validateForm();
     if (this.isValid)
@@ -191,8 +189,8 @@ export class AddEtudiantComponent implements OnInit {
   {
     this.toastr.warning('Vérifier Vos données....');
   }
-    
-   
+
+
   }
   updateData() {
     this.service.updatedata( this.service.formData.value).
@@ -231,25 +229,24 @@ export class AddEtudiantComponent implements OnInit {
   }
 
   OnSelectClasse(ctrl: any) {
-    
+
     this.f['codeClasse'].setValue( this.classeList[ctrl.selectedIndex - 1].code);
     this.f['classe'].setValue( this.classeList[ctrl.selectedIndex - 1].libelle);
   }
-  
+
   OnSelectEtablissement(ctrl: any) {
-    
+
     this.f['codeEtablissement'].setValue( this.etablissementList[ctrl.selectedIndex - 1].code);
     this.f['etablissement'].setValue( this.etablissementList[ctrl.selectedIndex - 1].libelle);
   }
   OnSelectNationalite(ctrl: any) {
-    
+
     this.f['codeNationalite'].setValue( this.nationaliteList[ctrl.selectedIndex - 1].code);
     this.f['nationalite'].setValue( this.nationaliteList[ctrl.selectedIndex - 1].libelle);
   }
   OnSelectNiveau(ctrl: any) {
-    
+
     this.f['codeNiveau'].setValue( this.niveauList[ctrl.selectedIndex - 1].code);
     this.f['niveau'].setValue( this.niveauList[ctrl.selectedIndex - 1].libelle);
   }
 }
-

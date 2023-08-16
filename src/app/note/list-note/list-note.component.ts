@@ -57,6 +57,3 @@ export class ListNoteComponent implements OnInit {
   }
 
 }
-
-
-

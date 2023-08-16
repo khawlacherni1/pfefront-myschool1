@@ -31,8 +31,6 @@ export class AddBanqueComponent implements OnInit {
 
   }
 
-
-
   infoForm() {
     this.crudApi.formData = this.fb.group({
       id: null,
@@ -52,8 +50,6 @@ export class AddBanqueComponent implements OnInit {
 
       this.updateData()
     }
-
-
   }
 
   lister() {
@@ -82,4 +78,3 @@ export class AddBanqueComponent implements OnInit {
   }
 
 }
-

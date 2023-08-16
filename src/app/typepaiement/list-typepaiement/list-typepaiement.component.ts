@@ -65,4 +65,3 @@ export class ListTypepaiementComponent implements OnInit {
     this.matDialog.open(AddTypepaiementComponent, dialogConfig);
   }
 }
-

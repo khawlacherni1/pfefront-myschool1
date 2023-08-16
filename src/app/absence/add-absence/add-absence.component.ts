@@ -71,7 +71,7 @@ export class AddAbsenceComponent implements OnInit {
     this.matricule = localStorage.getItem("matricule");
     this.f['enseignant'].setValue(localStorage.getItem("name"));
     this.f['matriculeEnseignant'].setValue(this.matricule);
-    
+
     this.coursService.getClasse(this.matricule).subscribe(
       response => {
         this.classeList = response
@@ -123,7 +123,6 @@ export class AddAbsenceComponent implements OnInit {
   }
 
   AddData(lAbsenceIndex: any, Id: any) {
- //   this.etudiantService.list[lAbsenceIndex - 1].absent.value = 'O'
    const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
@@ -142,12 +141,10 @@ export class AddAbsenceComponent implements OnInit {
         this.router.navigate(['/absences']);
       });
   }
-
   onDelete(item: any, Id: number, i: number) {
     if (Id != null)
       this.service.formData.value.id += Id;
     this.service.list.splice(i, 1);
-
   }
   updateData() {
     this.service.updatedata(this.service.formData.value).
@@ -184,16 +181,7 @@ export class AddAbsenceComponent implements OnInit {
       this.f['codeHoraire'].setValue(this.horaireList[ctrl.selectedIndex - 1].code);
     this.f['horaire'].setValue(this.horaireList[ctrl.selectedIndex - 1].heure);
     }
-
-
   transformDate(date: any) {
     return this.datePipe.transform(date, 'yyyy-MM-dd');
   }
 }
-
-
-
-
-
-
-

@@ -65,5 +65,4 @@ export class ListDomaineComponent implements OnInit {
     dialogConfig.width = "50%";
     this.matDialog.open(AddDomaineComponent, dialogConfig);
   }
-
 }

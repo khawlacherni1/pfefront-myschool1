@@ -88,4 +88,3 @@ export class ListReglementComponent implements OnInit {
     this.matDialog.open(RecuComponent, dialogConfig);
   }
 }
-

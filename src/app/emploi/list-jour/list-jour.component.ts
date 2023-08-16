@@ -68,7 +68,3 @@ export class ListJourComponent implements OnInit {
 
 
 }
-
-
-
- 

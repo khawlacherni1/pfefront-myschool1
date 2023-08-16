@@ -19,9 +19,9 @@ export class AddJourComponent implements OnInit {
         private router: Router,public dialogRef:MatDialogRef<AddJourComponent>) { }
         get f() { return this.crudApi.formData.controls }
       ngOnInit() {
-    
-        if (this.crudApi.choixmenu == "A") 
-        { this.infoForm() 
+
+        if (this.crudApi.choixmenu == "A")
+        { this.infoForm()
         this.onSelectCode();
         this.title ="Ajout Jour"}
         else
@@ -29,9 +29,9 @@ export class AddJourComponent implements OnInit {
           this.title ="Modification Jour"
         };
       }
-    
+
       onSelectCode() {
-        
+
         this.crudApi.getNumero().subscribe(
           response => {
             this.num = response;
@@ -40,7 +40,7 @@ export class AddJourComponent implements OnInit {
           }
         );
       }
-    
+
       infoForm() {
         this.crudApi.formData = this.fb.group({
           id: null,
@@ -52,31 +52,28 @@ export class AddJourComponent implements OnInit {
         this.crudApi.formData.reset();
       }
       onSubmit() {
-       
+
           if (this.crudApi.choixmenu == "A") {
             this.addData();
           }
           else {
-      
+
             this.updateData()
           }
-      
-      
       }
-    
     lister()
     {
       this.router.navigate(['/jours']);
     }
-    
+
       addData() {
-        
+
         this.crudApi.createData(this.crudApi.formData.value).
           subscribe(data => {
             this.dialogRef.close();
             this.crudApi.getAll().subscribe(
               response =>{this.crudApi.list = response;}
-             );                                            
+             );
             this.router.navigate(['/jours']);
           });
       }
@@ -90,9 +87,5 @@ export class AddJourComponent implements OnInit {
             this.router.navigate(['/jours']);
           });
       }
-    
+
 }
-
-
-
-
